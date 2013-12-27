@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>发起活动</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+    <style type=text/css>
+
+    </style>
+</head>
+
+
+<body class="oran-bg">
+
+<table class="table table-bordered">
+  <tr class="active">
+      <th class="col-xs-6">姓名</th>
+      <th class="col-xs-6">手机号</th>
+  </tr>
+  {% for a in regist_list %}
+    <tr>
+        <td>{{ a.name }}</td>
+        <td>{{ a.mobile }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+
+</body>
+</html>
