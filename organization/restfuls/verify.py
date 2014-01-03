@@ -5,7 +5,7 @@ from .tools import *
 
 
 def activity_s():
-    web_chat = WebChat(1234)
+    web_chat = WebChat('1234')
     if request.method == "GET":
         if web_chat.validate(**parse_request(request.args, ("timestamp", "nonce", "signature"))):
             return make_response(request.args.get("echostr"))
