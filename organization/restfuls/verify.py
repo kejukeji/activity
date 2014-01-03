@@ -1,12 +1,14 @@
 from flask import make_response, request
 from xml.etree import ElementTree as ET
 from .webchat import WebChat
-from .tools import get_token
+from .tools import *
 
 
-def activity_s(open_id):
-    web_chat = WebChat()
+def activity_s():
+    web_chat = WebChat(1234)
     if request.method == "GET":
+        if web_chat.validate(**parse_request(request.args, ("timestamp", "nonce", "signature"))):
+            return make_response(request.args.get("echostr"))
         raise LookupError
 
     if request.method == "POST":
@@ -34,14 +36,11 @@ def response_text(xml_recv, web_chat):
     Content = xml_recv.find("Content").text
     input_type = get_type(Content)
 
+    ToUserName = xml_recv.find("ToUserName").text
+    FromUserName = xml_recv.find("FromUserName").text
     reply_dict = {
-        "ToUserName": '',
-        "FromUserName": '',
-        "Content": Content,
-        "item": [{
-                "Title": str(''),
-                "Description": str(''),
-                "Url": 'activity_url'
-            }]
+        "ToUserName": FromUserName,
+        "FromUserName": ToUserName,
+        "Content": Content
     }
     return response(web_chat, reply_dict, "text")
