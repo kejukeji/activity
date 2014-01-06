@@ -26,7 +26,7 @@ def response(web_chat, reply_dict, reply_type):
 
 
 def get_type(Content):
-    if '活动' in Content:
+    if 'u' in Content:
         return "http://bilibili.kejukeji.com/index"
     if Content.startswith("fa"):
         return "gai"
