@@ -26,8 +26,8 @@ def response(web_chat, reply_dict, reply_type):
 
 
 def get_type(Content):
-    if Content.startswith("fa"):
-        return "jia"
+    if '活动' in Content:
+        return "http://bilibili.kejukeji.com/index"
     if Content.startswith("fa"):
         return "gai"
 
@@ -41,6 +41,6 @@ def response_text(xml_recv, web_chat):
     reply_dict = {
         "ToUserName": FromUserName,
         "FromUserName": ToUserName,
-        "Content": Content
+        "Content": input_type
     }
     return response(web_chat, reply_dict, "text")

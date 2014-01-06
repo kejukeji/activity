@@ -4,7 +4,6 @@ from organization.models.t_custom import CustomClass
 
 
 def get_token(custom_id):
-    """通过酒吧id获取酒吧的token"""
     pub = get_pub(custom_id)
     if pub:
         return str(pub.token)
@@ -20,5 +19,4 @@ def parse_request(request_dict, args):
 
 
 def get_pub(custom_id):
-    """通过酒吧id获取酒吧"""
     return CustomClass.query.filter(CustomClass.open_id == custom_id).first()
