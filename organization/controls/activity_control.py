@@ -6,6 +6,7 @@ from datetime import datetime
 from organization.services.regist_service import *
 from organization.services.custom_service import *
 from organization.controls.custom_control import *
+import hashlib
 
 def show_activity(activity_id):
     activity = get_activity(activity_id)
@@ -43,7 +44,7 @@ def html_activity(form):
     return Activity(title = form.get('title'),
                     content = form.get('content'),
                     sponsor = form.get('sponsor'),
-                    password = form.get('password'),
+                    password = hashlib.new('md5', form.get('password')).hexdigest(),
                     date = dateformat)
 
 
@@ -55,7 +56,7 @@ def show_activity_list():
                            activity_list = activity_list)
 
 def check_password(activity_id):
-    password_html = request.form.get('passwordcheck')
+    password_html = hashlib.new('md5', request.form.get('passwordcheck')).hexdigest()
     password = find_pass_by_id(activity_id)
     if password == password_html:
         return show_custom_list(activity_id)

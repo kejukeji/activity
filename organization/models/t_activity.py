@@ -21,4 +21,4 @@ class ActivityClass(Base):
     content = Column(String(2048), nullable=False)
     readNo = Column(Integer(20), nullable=True)
     shareNo = Column(Integer(20), nullable=True)
-    password = Column(String(30), nullable=False)
+    password = Column(String(50), nullable=False)
