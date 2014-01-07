@@ -69,10 +69,10 @@
 <script type="text/javascript">
 
     function checkForm(){
-        if(($('#title').val().length<4)||($('#title').val().length>255)){
+        if(($('#title').val().length==0)||($('#title').val().length>255)){
             alert("你的标题输入长度有误，请重新输入！");
             return false;
-        }else if(($('#sponsor').val().length<4)||($('#sponsor').val().length>50)){
+        }else if(($('#sponsor').val().length==0)||($('#sponsor').val().length>50)){
             alert("你的发布者长度输入错误，请检查后重新输入！");
             return false;
         }
