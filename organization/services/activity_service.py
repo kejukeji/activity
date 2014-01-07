@@ -6,6 +6,10 @@ def get_activity(act_id):
     activity = Activity.query.filter(Activity.id == act_id).first()
     return activity
 
+def get_activity_count():
+    activity_count = Activity.query.filter().count()
+    return activity_count
+
 def get_activity_list():
     activity_count = Activity.query.filter().count()
     if activity_count ==1 :

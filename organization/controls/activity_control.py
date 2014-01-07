@@ -49,7 +49,9 @@ def html_activity(form):
 
 def show_activity_list():
     activity_list = get_activity_list()
+    activity_count = get_activity_count()
     return render_template('showactivitylist.html',
+                           activity_count = activity_count,
                            activity_list = activity_list)
 
 def check_password(activity_id):

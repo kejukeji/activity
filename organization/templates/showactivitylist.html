@@ -22,18 +22,33 @@
 
 <body class="oran-bg">
 
-<table class="table table-bordered">
-  <tr class="active">
-      <th class="col-xs-9">活动</th>
-      <th class="col-xs-3">操作</th>
-  </tr>
-  {% for a in activity_list %}
-    <tr>
-        <td>{{ a.title }}</td>
-        <td><button onclick="window.location.href='/showactivity/{{ a.id }}'" type="button" class="btn btn-primary btn-xs">查看</button></td>
-    </tr>
-  {% endfor %}
-</table>
+{% if activity_count == 0 %}
+    <div>现在没有活动，您可以添加一个活动。</div>
+{% elif activity_count == 1 %}
+    <table class="table table-bordered">
+      <tr class="active">
+          <th class="col-xs-9">活动</th>
+          <th class="col-xs-3">操作</th>
+      </tr>
+        <tr>
+            <td>{{ activity_list.title }}</td>
+            <td><button onclick="window.location.href='/showactivity/{{ activity_list.id }}'" type="button" class="btn btn-primary btn-xs">查看</button></td>
+        </tr>
+    </table>
+{% else %}
+    <table class="table table-bordered">
+      <tr class="active">
+          <th class="col-xs-9">活动</th>
+          <th class="col-xs-3">操作</th>
+      </tr>
+      {% for a in activity_list %}
+        <tr>
+            <td>{{ a.title }}</td>
+            <td><button onclick="window.location.href='/showactivity/{{ a.id }}'" type="button" class="btn btn-primary btn-xs">查看</button></td>
+        </tr>
+      {% endfor %}
+    </table>
+{% endif %}
 
 
 </body>
