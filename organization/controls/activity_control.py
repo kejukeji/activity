@@ -35,7 +35,8 @@ def activity_commit():
     if request.method == 'POST':
         Activity = html_activity(request.form)
         save_activity(Activity)
-        return show_activity(Activity.id)
+        #return show_activity(Activity.id)
+        return redirect(url_for("show_activity", activity_id=Activity.id))
 
 
 
