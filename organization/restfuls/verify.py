@@ -49,7 +49,7 @@ def response_text(xml_recv, web_chat):
 def response_event(xml_recv, web_chat):
     #Event = xml_recv.find("Event").text
     #EventKey = xml_recv.find("EventKey").text
-    activity_id = string.atoi(xml_recv.find("content").text)
+    activity_id = string.atoi(xml_recv.find("Content").text)
     ToUserName = xml_recv.find("ToUserName").text
     FromUserName = xml_recv.find("FromUserName").text
 
