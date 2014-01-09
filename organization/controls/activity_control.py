@@ -10,6 +10,8 @@ import hashlib
 
 def show_activity(activity_id):
     activity = get_activity(activity_id)
+    activity.readNo = activity.readNo + 1
+    save_activity(activity)
     regist_result = get_by_activity_id(activity_id)
     regist_count = get_count_by_activity_id(activity_id)
     regist_list = []
@@ -34,6 +36,7 @@ def show_activity(activity_id):
 def activity_commit():
     if request.method == 'POST':
         Activity = html_activity(request.form)
+        Activity.readNo = 1
         save_activity(Activity)
         #return show_activity(Activity.id)
         return redirect(url_for("show_activity", activity_id=Activity.id))

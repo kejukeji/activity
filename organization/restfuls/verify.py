@@ -16,7 +16,7 @@ def activity_s():
         MsgType = xml_recv.find("MsgType").text
 
         if MsgType == "text":
-            return response_text(xml_recv, web_chat)
+            return response_event(xml_recv, web_chat)
 
 def response(web_chat, reply_dict, reply_type):
     reply = web_chat.reply(reply_type, reply_dict)
@@ -44,3 +44,32 @@ def response_text(xml_recv, web_chat):
         "Content": input_type
     }
     return response(web_chat, reply_dict, "text")
+
+def response_event(xml_recv, web_chat, activity_id):
+    """对事件进行相应"""
+    #Event = xml_recv.find("Event").text
+    #EventKey = xml_recv.find("EventKey").text
+    ToUserName = xml_recv.find("ToUserName").text
+    FromUserName = xml_recv.find("FromUserName").text
+
+    #if (Event == 'CLICK') and (EventKey == 'story'):
+    activity = get_activity_weixin(activity_id)
+    reply_dict = {
+        "ToUserName": FromUserName,
+        "FromUserName": ToUserName,
+        "ArticleCount": 1,
+        "item": [{
+            "Title": str(activity.title),
+            "Description": str(activity.content),
+            "PicUrl": '',
+            "Url": url(activity_id)
+        }]
+    }
+
+    return response(web_chat, reply_dict, "news")
+
+
+BASE_URL = "http://bilibili.kejukeji.com"
+
+def url(activity_id):
+    return BASE_URL+"/showactivity/"+str(activity_id)
