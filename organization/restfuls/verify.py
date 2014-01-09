@@ -2,6 +2,7 @@ from flask import make_response, request
 from xml.etree import ElementTree as ET
 from .webchat import WebChat
 from .tools import *
+import string
 
 
 def activity_s():
@@ -53,7 +54,7 @@ def response_event(xml_recv, web_chat, activity_id):
     FromUserName = xml_recv.find("FromUserName").text
 
     #if (Event == 'CLICK') and (EventKey == 'story'):
-    activity = get_activity_weixin(activity_id)
+    activity = get_activity_weixin(string.atoi(activity_id))
     reply_dict = {
         "ToUserName": FromUserName,
         "FromUserName": ToUserName,
