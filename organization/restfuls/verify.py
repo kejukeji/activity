@@ -47,7 +47,6 @@ def response_text(xml_recv, web_chat):
     return response(web_chat, reply_dict, "text")
 
 def response_event(xml_recv, web_chat):
-    """对事件进行相应"""
     #Event = xml_recv.find("Event").text
     #EventKey = xml_recv.find("EventKey").text
     activity_id = string.atoi(xml_recv.find("content").text)
@@ -55,7 +54,7 @@ def response_event(xml_recv, web_chat):
     FromUserName = xml_recv.find("FromUserName").text
 
     #if (Event == 'CLICK') and (EventKey == 'story'):
-    activity = get_activity_weixin(string.atoi(activity_id))
+    activity = get_activity_weixin(activity_id)
     reply_dict = {
         "ToUserName": FromUserName,
         "FromUserName": ToUserName,
