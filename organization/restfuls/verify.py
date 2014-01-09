@@ -62,7 +62,7 @@ def response_event(xml_recv, web_chat):
         "item": [{
             "Title": str(activity.title),
             "Description": str(activity.content),
-            "PicUrl": '',
+            "PicUrl": '/static/image/huodong1.jpg',
             "Url": url(activity_id)
         }]
     }
