@@ -40,25 +40,25 @@ def response_text(xml_recv, web_chat):
     ToUserName = xml_recv.find("ToUserName").text
     FromUserName = xml_recv.find("FromUserName").text
 
-    if content == 'h':
-        return HELP
-    elif content == 'my':
-        return 'waiting……'
-    else:
-        activity_id = string.atoi(content)
-        activity = get_activity_weixin(activity_id)
-        reply_dict = {
-            "ToUserName": FromUserName,
-            "FromUserName": ToUserName,
-            "ArticleCount": 1,
-            "item": [{
-                "Title": str(activity.title),
-                "Description": str(activity.content),
-                "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
-                "Url": url(activity_id)
-            }]
-        }
-        return response(web_chat, reply_dict, "news")
+    #if content == 'h':
+    #    return HELP
+    #elif content == 'my':
+    #    return 'waiting……'
+    #else:
+    activity_id = string.atoi(content)
+    activity = get_activity_weixin(activity_id)
+    reply_dict = {
+        "ToUserName": FromUserName,
+        "FromUserName": ToUserName,
+        "ArticleCount": 1,
+        "item": [{
+            "Title": str(activity.title),
+            "Description": str(activity.content),
+            "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
+            "Url": url(activity_id)
+        }]
+    }
+    return response(web_chat, reply_dict, "news")
 
 def response_event(xml_recv, web_chat):
     #Event = xml_recv.find("Event").text
