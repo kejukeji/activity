@@ -19,7 +19,7 @@ def activity_s():
         if MsgType == "text":
             return response_event(xml_recv, web_chat)
         elif MsgType =="event":
-            return response_event()
+            return 'event'
 
 def response(web_chat, reply_dict, reply_type):
     reply = web_chat.reply(reply_type, reply_dict)
@@ -57,12 +57,11 @@ def response_text(xml_recv, web_chat):
                 "Url": url(content)
             }]
         }
-
         return response(web_chat, reply_dict, "news")
 
 def response_event(xml_recv, web_chat):
-    Event = xml_recv.find("Event").text
-    EventKey = xml_recv.find("EventKey").text
+    #Event = xml_recv.find("Event").text
+    #EventKey = xml_recv.find("EventKey").text
     activity_id = string.atoi(xml_recv.find("Content").text)
     ToUserName = xml_recv.find("ToUserName").text
     FromUserName = xml_recv.find("FromUserName").text
