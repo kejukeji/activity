@@ -17,7 +17,7 @@ def activity_s():
         MsgType = xml_recv.find("MsgType").text
 
         if MsgType == "text":
-            return response_event(xml_recv, web_chat)
+            return response_text(xml_recv, web_chat)
         #elif MsgType =="event":
         #    return 'event'
 
@@ -36,7 +36,7 @@ def get_type(Content):
 
 
 def response_text(xml_recv, web_chat):
-    content = string.atoi(xml_recv.find("Content").text)
+    content = xml_recv.find("Content").text
     ToUserName = xml_recv.find("ToUserName").text
     FromUserName = xml_recv.find("FromUserName").text
 
@@ -45,7 +45,8 @@ def response_text(xml_recv, web_chat):
     elif content == 'my':
         return 'waiting……'
     else:
-        activity = get_activity_weixin(content)
+        activity_id = string.atoi(content)
+        activity = get_activity_weixin(activity_id)
         reply_dict = {
             "ToUserName": FromUserName,
             "FromUserName": ToUserName,
@@ -54,7 +55,7 @@ def response_text(xml_recv, web_chat):
                 "Title": str(activity.title),
                 "Description": str(activity.content),
                 "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
-                "Url": url(content)
+                "Url": url(activity_id)
             }]
         }
         return response(web_chat, reply_dict, "news")
