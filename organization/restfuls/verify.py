@@ -18,8 +18,8 @@ def activity_s():
 
         if MsgType == "text":
             return response_event(xml_recv, web_chat)
-        elif MsgType =="event":
-            return 'event'
+        #elif MsgType =="event":
+        #    return 'event'
 
 def response(web_chat, reply_dict, reply_type):
     reply = web_chat.reply(reply_type, reply_dict)
