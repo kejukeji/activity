@@ -17,7 +17,9 @@ def activity_s():
         MsgType = xml_recv.find("MsgType").text
 
         if MsgType == "text":
-            return response_event(xml_recv, web_chat)
+            return response_text(xml_recv, web_chat)
+        elif MsgType =="event":
+            return response_event()
 
 def response(web_chat, reply_dict, reply_type):
     reply = web_chat.reply(reply_type, reply_dict)
@@ -34,21 +36,33 @@ def get_type(Content):
 
 
 def response_text(xml_recv, web_chat):
-    Content = xml_recv.find("Content").text
-    input_type = get_type(Content)
-
+    content = string.atoi(xml_recv.find("Content").text)
     ToUserName = xml_recv.find("ToUserName").text
     FromUserName = xml_recv.find("FromUserName").text
-    reply_dict = {
-        "ToUserName": FromUserName,
-        "FromUserName": ToUserName,
-        "Content": input_type
-    }
-    return response(web_chat, reply_dict, "text")
+
+    if content == 'h':
+        return HELP
+    elif content == 'my':
+        return 'waiting……'
+    else:
+        activity = get_activity_weixin(content)
+        reply_dict = {
+            "ToUserName": FromUserName,
+            "FromUserName": ToUserName,
+            "ArticleCount": 1,
+            "item": [{
+                "Title": str(activity.title),
+                "Description": str(activity.content),
+                "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
+                "Url": url(content)
+            }]
+        }
+
+        return response(web_chat, reply_dict, "news")
 
 def response_event(xml_recv, web_chat):
-    #Event = xml_recv.find("Event").text
-    #EventKey = xml_recv.find("EventKey").text
+    Event = xml_recv.find("Event").text
+    EventKey = xml_recv.find("EventKey").text
     activity_id = string.atoi(xml_recv.find("Content").text)
     ToUserName = xml_recv.find("ToUserName").text
     FromUserName = xml_recv.find("FromUserName").text
@@ -71,6 +85,7 @@ def response_event(xml_recv, web_chat):
 
 
 BASE_URL = "http://bilibili.kejukeji.com"
+HELP = "感谢关注客聚科技活动平台，输入’h‘获取帮助信息，输入’my‘获取我参与的活动，输入’c‘创建一个新活动！"
 
 def url(activity_id):
     return BASE_URL+"/showactivity/"+str(activity_id)
