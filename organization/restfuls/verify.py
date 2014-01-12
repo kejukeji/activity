@@ -59,6 +59,19 @@ def response_text(xml_recv, web_chat):
             "Content":message
         }
         return response(web_chat, reply_dict, "text")
+    elif content == 'c':
+         reply_dict = {
+            "ToUserName": FromUserName,
+            "FromUserName": ToUserName,
+            "ArticleCount": 1,
+            "item": [{
+                "Title": '创建活动',
+                "Description": "点击进入创建活动页面",
+                "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
+                "Url": BASE_URL+"/index/"
+            }]
+         }
+         return response(web_chat, reply_dict, "news")
     else:
         activity_id = string.atoi(content)
         activity = get_activity_weixin(activity_id)

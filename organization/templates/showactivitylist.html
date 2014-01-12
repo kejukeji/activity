@@ -31,7 +31,7 @@
           <th class="col-xs-3">操作</th>
       </tr>
         <tr>
-            <td>{{ activity_list.title }}</td>
+            <td><a href="/showactivity/{{ activity_list.id }}">{{ activity_list.title }}</a></td>
             <td><button onclick="window.location.href='/showactivity/{{ activity_list.id }}'" type="button" class="btn btn-primary btn-xs">查看</button></td>
         </tr>
     </table>
@@ -43,7 +43,7 @@
       </tr>
       {% for a in activity_list %}
         <tr>
-            <td>{{ a.title }}</td>
+            <td><a href="/showactivity/{{ a.id }}">{{ a.title }}</a></td>
             <td><button onclick="window.location.href='/showactivity/{{ a.id }}'" type="button" class="btn btn-primary btn-xs">查看</button></td>
         </tr>
       {% endfor %}
