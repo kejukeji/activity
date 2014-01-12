@@ -44,9 +44,21 @@ def response_text(xml_recv, web_chat):
     FromUserName = xml_recv.find("FromUserName").text
 
     if content == 'h':
-        return HELP
+        message = HELP
+        reply_dict = {
+            "ToUserName": FromUserName,
+            "FromUserName": ToUserName,
+            "Content":message
+        }
+        return response(web_chat, reply_dict, "text")
     elif content == 'my':
-        return 'waiting……'
+        message = 'waiting……'
+        reply_dict = {
+            "ToUserName": FromUserName,
+            "FromUserName": ToUserName,
+            "Content":message
+        }
+        return response(web_chat, reply_dict, "text")
     else:
         activity_id = string.atoi(content)
         activity = get_activity_weixin(activity_id)
