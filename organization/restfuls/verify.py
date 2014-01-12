@@ -1,3 +1,6 @@
+# coding: utf-8
+
+
 from flask import make_response, request
 from xml.etree import ElementTree as ET
 from .webchat import WebChat
