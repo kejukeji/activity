@@ -21,7 +21,7 @@ def activity_s():
 
         if MsgType == "text":
             return response_text(xml_recv, web_chat)
-        elif MsgType =="event":
+        if MsgType == "event":
             return response_event(xml_recv, web_chat)
 
 def response(web_chat, reply_dict, reply_type):
