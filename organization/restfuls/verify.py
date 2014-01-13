@@ -52,7 +52,7 @@ def response_text(xml_recv, web_chat):
         }
         return response(web_chat, reply_dict, "text")
     elif content == 'my':
-        message = '111111'
+        message = 'http://bilibili.kejukeji.com/createmenu'
         reply_dict = {
             "ToUserName": FromUserName,
             "FromUserName": ToUserName,
