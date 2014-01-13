@@ -27,3 +27,4 @@ app.add_url_rule('/regist/<int:activity_id>', 'custom_commit', custom_commit, me
 app.add_url_rule('/sponactivity', 'activity_commit', activity_commit, methods=['GET', 'POST'])
 app.add_url_rule('/checkpassword/<int:activity_id>', 'check_password', check_password, methods=['GET', 'POST'])
 app.add_url_rule('/start/activity', 'activity_s', activity_s, methods=['GET','POST'])
+app.add_url_rule('/createmenu', 'create_menu', create_menu, methods=['GET','POST'])
