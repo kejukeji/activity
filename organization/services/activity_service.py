@@ -1,6 +1,7 @@
 # coding: UTF-8
 from organization.models.t_activity import ActivityClass as Activity
 from organization.models.database import *
+from sqlalchemy import desc
 
 def get_activity(act_id):
     activity = Activity.query.filter(Activity.id == act_id).first()
@@ -15,7 +16,7 @@ def get_activity_list():
     if activity_count ==1 :
         activity_list = Activity.query.filter().first()
     elif activity_count > 1:
-        activity_list = Activity.query.filter().all()
+        activity_list = Activity.query.filter().order_by(desc(Activity.id)).all()
     else:
         activity_list = None
     return activity_list

@@ -94,15 +94,21 @@ def response_event(xml_recv, web_chat):
     activity_id = string.atoi(xml_recv.find("Content").text)
     ToUserName = xml_recv.find("ToUserName").text
     FromUserName = xml_recv.find("FromUserName").text
-
-    if Event == 'subscribe' :
-        message = HELP
+    if (Event == 'CLICK') and (EventKey == 'viewActivity'):
         reply_dict = {
             "ToUserName": FromUserName,
             "FromUserName": ToUserName,
-            "Content":message
-        }
-        return response(web_chat, reply_dict, "text")
+            "ArticleCount": 1,
+            "item": [{
+                "Title": '查看活动',
+                "Description": "点击进入活动列表",
+                "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
+                "Url": BASE_URL+"/showactivitylist"
+            }]
+         }
+        return response(web_chat, reply_dict, "news")
+
+
 
 
 BASE_URL = "http://bilibili.kejukeji.com"
