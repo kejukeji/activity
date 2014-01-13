@@ -6,6 +6,7 @@ from xml.etree import ElementTree as ET
 from .webchat import WebChat
 from .tools import *
 import string
+from organization.restfuls.menu import create_menu
 
 
 def activity_s():
@@ -52,13 +53,7 @@ def response_text(xml_recv, web_chat):
         }
         return response(web_chat, reply_dict, "text")
     elif content == 'my':
-        message = 'http://bilibili.kejukeji.com/createmenu'
-        reply_dict = {
-            "ToUserName": FromUserName,
-            "FromUserName": ToUserName,
-            "Content":message
-        }
-        return response(web_chat, reply_dict, "text")
+        create_menu()
     elif content == 'c':
          reply_dict = {
             "ToUserName": FromUserName,

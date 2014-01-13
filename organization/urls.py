@@ -7,6 +7,7 @@ from organization.controls.regist_control import *
 from organization.controls.custom_control import *
 from organization.controls.index import *
 from organization.restfuls.verify import *
+from organization.restfuls.menu import *
 
 
 #定义访问control路径
