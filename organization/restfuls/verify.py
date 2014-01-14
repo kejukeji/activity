@@ -106,19 +106,19 @@ def response_event(xml_recv, web_chat):
             }]
          }
         return response(web_chat, reply_dict, "news")
-    if (Event == 'CLICK') and (EventKey == 'startActivity'):
-        reply_dict = {
-            "ToUserName": FromUserName,
-            "FromUserName": ToUserName,
-            "ArticleCount": 1,
-            "item": [{
-                "Title": '创建活动',
-                "Description": "点击进入创建活动页面",
-                "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
-                "Url": BASE_URL+"/createactivity"
-            }]
-         }
-        return response(web_chat, reply_dict, "news")
+    #if (Event == 'CLICK') and (EventKey == 'startActivity'):
+    #    reply_dict = {
+    #        "ToUserName": FromUserName,
+    #        "FromUserName": ToUserName,
+    #        "ArticleCount": 1,
+    #        "item": [{
+    #            "Title": '创建活动',
+    #            "Description": "点击进入创建活动页面",
+    #            "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
+    #            "Url": BASE_URL+"/createactivity"
+    #        }]
+    #     }
+    #    return response(web_chat, reply_dict, "news")
 
 
 
