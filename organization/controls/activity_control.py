@@ -69,3 +69,6 @@ def check_password(activity_id):
         return render_template('error.html',
                                error_message = error_message,
                                activity_id = activity_id)
+
+def create_activity():
+    return render_template('createactivity.html')

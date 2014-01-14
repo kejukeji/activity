@@ -23,6 +23,7 @@ app.add_url_rule('/showactivity/<int:activity_id>', 'show_activity', show_activi
 app.add_url_rule('/index', 'index', index)
 app.add_url_rule('/customlist/<int:activity_id>', 'show_custom_list', show_custom_list)
 app.add_url_rule('/showactivitylist', 'show_activity_list', show_activity_list)
+app.add_url_rule('/createactivity', 'create_activity', create_activity)
 app.add_url_rule('/regist/<int:activity_id>', 'custom_commit', custom_commit, methods=['GET', 'POST'])
 app.add_url_rule('/sponactivity', 'activity_commit', activity_commit, methods=['GET', 'POST'])
 app.add_url_rule('/checkpassword/<int:activity_id>', 'check_password', check_password, methods=['GET', 'POST'])

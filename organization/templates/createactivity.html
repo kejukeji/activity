@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>创建活动</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+
+<div>
+    <form class="form-horizontal" onsubmit="return checkForm()" role="form" action="/sponactivity" method="POST">
+        <div>
+            <h4 class="modal-title" id="myModalLabel">输入您的活动相关信息</h4>
+        </div>
+
+        <div>
+            <div class="form-group row">
+                <div>
+                    <input type="title" class="form-control" id="title" name="title" placeholder="请输入活动名称">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div>
+                    <input type="sponsor" class="form-control" id="sponsor" name="sponsor" placeholder="请输入发起者姓名">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div>
+                    <textarea type="content" class="form-control" id="content" name="content"
+                              placeholder="请输入活动内容"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="请输入管理密码">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">保存</button>
+        </div>
+    </form>
+</div>
+
+</body>
+<script type="text/javascript">
+
+    function checkForm() {
+        if (($('#title').val().length == 0) || ($('#title').val().length > 255)) {
+            alert("你的标题输入长度有误，请重新输入！");
+            return false;
+        } else if (($('#sponsor').val().length == 0) || ($('#sponsor').val().length > 50)) {
+            alert("你的发布者长度输入错误，请检查后重新输入！");
+            return false;
+        }
+        else if (($('#content').val().length < 4) || ($('#content').val().length > 2048)) {
+            alert("你的活动内容长度错误，请检查后重新输入！");
+            return false;
+        }
+        else if (($('#password').val().length < 6) || ($('#password').val().length > 16)) {
+            alert("你的密码长度错误，请输入6-16位的字符！");
+            return false;
+        } else {
+            alert('保存成功');
+            return true;
+        }
+    }
+
+</script>
+</html>
