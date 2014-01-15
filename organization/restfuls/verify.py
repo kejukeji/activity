@@ -125,9 +125,8 @@ def response_event(xml_recv, web_chat):
          }
         return response(web_chat, reply_dict, "news")
     if (Event == 'CLICK') and (EventKey == 'myActivity'):
-        custom = Custom.query.filter(Custom.openId == FromUserName).first()
-        regist_count = Regist.query.filter(Regist.custom_Id == custom.id).count()
-        if regist_count == 0:
+        custom_count = Custom.query.filter(Custom.openId == FromUserName).count()
+        if custom_count == 0:
             message = '您还没有参加活动！'
             reply_dict = {
             "ToUserName": FromUserName,
@@ -135,58 +134,69 @@ def response_event(xml_recv, web_chat):
             "Content":message
             }
             return response(web_chat, reply_dict, "text")
-        elif regist_count == 1:
-            regist = Regist.query.filter(Regist.custom_Id == custom.id).first()
-            activity_id = regist.activity_Id
-            activity = get_activity_weixin(activity_id)
-            reply_dict = {
-                "ToUserName": FromUserName,
-                "FromUserName": ToUserName,
-                "ArticleCount": 1,
-                "item": [{
-                    "Title": str(activity.title),
-                    "Description": str(activity.content),
-                    "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
-                    "Url": BASE_URL+"/showactivity/"+activity_id
-                }]
-            }
-            return response(web_chat, reply_dict, "news")
-        elif regist_count > 5:
-            regist = Regist.query.filter(Regist.custom_Id == custom.id).order_by(desc(Regist.id))[:5]
-            reply_dict = {
-                "ToUserName": FromUserName,
-                "FromUserName": ToUserName,
-                "ArticleCount": 5,
-                "item": []
-            }
-            for r in regist:
-                activity = get_activity_weixin(r.activity_Id)
-                item = {
-                    "Title": str(activity.title),
-                    "Description": str(activity.content),
-                    "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
-                    "Url": BASE_URL+"/showactivity/"+r.activity_Id
-                }
-                reply_dict["item"].append(item)
-            return response(web_chat, reply_dict, "news")
         else:
-            regist = Regist.query.filter(Regist.custom_Id == custom.id).order_by(desc(Regist.id))[:regist_count]
-            reply_dict = {
+            custom = Custom.query.filter(Custom.openId == FromUserName).first()
+            regist_count = Regist.query.filter(Regist.custom_Id == custom.id).count()
+            if regist_count == 0:
+                message = '您还没有参加活动！'
+                reply_dict = {
                 "ToUserName": FromUserName,
                 "FromUserName": ToUserName,
-                "ArticleCount": regist_count,
-                "item": []
-            }
-            for r in regist:
-                activity = get_activity_weixin(r.activity_Id)
-                item = {
-                    "Title": str(activity.title),
-                    "Description": str(activity.content),
-                    "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
-                    "Url": BASE_URL+"/showactivity/"+r.activity_Id
+                "Content":message
                 }
-                reply_dict["item"].append(item)
-            return response(web_chat, reply_dict, "news")
+                return response(web_chat, reply_dict, "text")
+            elif regist_count == 1:
+                regist = Regist.query.filter(Regist.custom_Id == custom.id).first()
+                activity_id = regist.activity_Id
+                activity = get_activity_weixin(activity_id)
+                reply_dict = {
+                    "ToUserName": FromUserName,
+                    "FromUserName": ToUserName,
+                    "ArticleCount": 1,
+                    "item": [{
+                        "Title": str(activity.title),
+                        "Description": str(activity.content),
+                        "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
+                        "Url": BASE_URL+"/showactivity/"+activity_id
+                    }]
+                }
+                return response(web_chat, reply_dict, "news")
+            elif regist_count > 5:
+                regist = Regist.query.filter(Regist.custom_Id == custom.id).order_by(desc(Regist.id))[:5]
+                reply_dict = {
+                    "ToUserName": FromUserName,
+                    "FromUserName": ToUserName,
+                    "ArticleCount": 5,
+                    "item": []
+                }
+                for r in regist:
+                    activity = get_activity_weixin(r.activity_Id)
+                    item = {
+                        "Title": str(activity.title),
+                        "Description": str(activity.content),
+                        "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
+                        "Url": BASE_URL+"/showactivity/"+r.activity_Id
+                    }
+                    reply_dict["item"].append(item)
+                return response(web_chat, reply_dict, "news")
+            else:
+                regist = Regist.query.filter(Regist.custom_Id == custom.id).order_by(desc(Regist.id))[:regist_count]
+                reply_dict = {
+                    "ToUserName": FromUserName,
+                    "FromUserName": ToUserName,
+                    "ArticleCount": regist_count,
+                    "item": []
+                }
+                for r in regist:
+                    activity = get_activity_weixin(r.activity_Id)
+                    item = {
+                        "Title": str(activity.title),
+                        "Description": str(activity.content),
+                        "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
+                        "Url": BASE_URL+"/showactivity/"+r.activity_Id
+                    }
+                    reply_dict["item"].append(item)
+                return response(web_chat, reply_dict, "news")
 
         #
         #regist = Regist.query.filter
