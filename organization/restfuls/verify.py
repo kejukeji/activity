@@ -124,6 +124,22 @@ def response_event(xml_recv, web_chat):
             }]
          }
         return response(web_chat, reply_dict, "news")
+    if(Event == 'CLICK') and (EventKey == 'prize'):
+        message = '该功能开发中，敬请期待！！'
+        reply_dict = {
+        "ToUserName": FromUserName,
+        "FromUserName": ToUserName,
+        "Content":message
+        }
+        return response(web_chat, reply_dict, "text")
+    if(Event == 'CLICK') and (EventKey == 'scrape'):
+        message = '该功能开发中，敬请期待！！'
+        reply_dict = {
+        "ToUserName": FromUserName,
+        "FromUserName": ToUserName,
+        "Content":message
+        }
+        return response(web_chat, reply_dict, "text")
     if (Event == 'CLICK') and (EventKey == 'myActivity'):
         custom_count = Custom.query.filter(Custom.openId == FromUserName).count()
         if custom_count == 0:
@@ -198,13 +214,6 @@ def response_event(xml_recv, web_chat):
                     reply_dict["item"].append(item)
                 return response(web_chat, reply_dict, "news")
 
-        #
-        #regist = Regist.query.filter
-        #reply_dict = {
-        #    "ToUserName": FromUserName,
-        #    "FromUserName": ToUserName,
-        #    "ArticleCount":,
-        #}
 
 
 
