@@ -73,7 +73,7 @@ def response_text(xml_recv, web_chat):
                 "Title": '创建活动',
                 "Description": "点击进入创建活动页面",
                 "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
-                "Url": BASE_URL+"/index"
+                "Url": BASE_URL+"/index?openId="+FromUserName
             }]
          }
          return response(web_chat, reply_dict, "news")
@@ -88,7 +88,7 @@ def response_text(xml_recv, web_chat):
                 "Title": str(activity.title),
                 "Description": str(activity.content),
                 "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
-                "Url": url(activity_id)
+                "Url": url(activity_id)+"?openId="+FromUserName
             }]
         }
         return response(web_chat, reply_dict, "news")
@@ -107,7 +107,7 @@ def response_event(xml_recv, web_chat):
                 "Title": '查看活动',
                 "Description": "点击进入活动列表",
                 "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
-                "Url": BASE_URL+"/showactivitylist"
+                "Url": BASE_URL+"/showactivitylist"+"?openId="+FromUserName
             }]
          }
         return response(web_chat, reply_dict, "news")
@@ -120,7 +120,7 @@ def response_event(xml_recv, web_chat):
                 "Title": '创建活动',
                 "Description": "点击进入创建活动页面",
                 "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
-                "Url": BASE_URL+"/createactivity"
+                "Url": BASE_URL+"/createactivity"+"?openId="+FromUserName
             }]
          }
         return response(web_chat, reply_dict, "news")
@@ -173,7 +173,7 @@ def response_event(xml_recv, web_chat):
                         "Title": str(activity.title),
                         "Description": str(activity.content),
                         "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
-                        "Url": BASE_URL+"/showactivity/"+activity_id
+                        "Url": BASE_URL+"/showactivity/"+activity_id+"?openId="+FromUserName
                     }]
                 }
                 return response(web_chat, reply_dict, "news")
@@ -191,7 +191,7 @@ def response_event(xml_recv, web_chat):
                         "Title": str(activity.title),
                         "Description": str(activity.content),
                         "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
-                        "Url": BASE_URL+"/showactivity/"+r.activity_Id
+                        "Url": BASE_URL+"/showactivity/"+r.activity_Id+"?openId="+FromUserName
                     }
                     reply_dict["item"].append(item)
                 return response(web_chat, reply_dict, "news")
@@ -209,7 +209,7 @@ def response_event(xml_recv, web_chat):
                         "Title": str(activity.title),
                         "Description": str(activity.content),
                         "PicUrl": BASE_URL+'/static/image/huodong1.jpg',
-                        "Url": BASE_URL+"/showactivity/"+r.activity_Id
+                        "Url": BASE_URL+"/showactivity/"+r.activity_Id+"?openId="+FromUserName
                     }
                     reply_dict["item"].append(item)
                 return response(web_chat, reply_dict, "news")
