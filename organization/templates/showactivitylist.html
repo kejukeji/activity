@@ -20,32 +20,47 @@
 </head>
 
 
-<body class="oran-bg">
+<body>
+<div class="container">
+    <div>
+        <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="#">主页</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+    </div>
+    <br>
 
-{% if activity_count == 0 %}
-    <div>现在没有活动，您可以添加一个活动。</div>
-{% elif activity_count == 1 %}
-    <table class="table table-bordered">
-      <tr class="active">
-          <th class="col-xs-9">活动</th>
-      </tr>
-        <tr>
-            <td><a href="/showactivity/{{ activity_list.id }}">{{ activity_list.title }}</a></td>
-        </tr>
-    </table>
-{% else %}
-    <table class="table table-bordered">
-      <tr class="active">
-          <th class="col-xs-9">活动</th>
-      </tr>
-      {% for a in activity_list %}
-        <tr>
-            <td><a href="/showactivity/{{ a.id }}">{{ a.title }}</a></td>
-        </tr>
-      {% endfor %}
-    </table>
-{% endif %}
+    <div style="border-top: 20px;border-bottom: 20px">
+        <hr>
+    </div>
 
+    <div>
+        {% if activity_count == 0 %}
+            <div>现在没有活动，您可以添加一个活动。</div>
+        {% elif activity_count == 1 %}
+            <table class="table table-bordered">
+                <tr class="active">
+                    <th class="col-xs-9" style="font-family: '微软雅黑'">活动</th>
+                </tr>
+                <tr>
+                    <td><a href="/showactivity/{{ activity_list.id }}">{{ activity_list.title }}</a></td>
+                </tr>
+            </table>
+        {% else %}
+            <table class="table table-bordered">
+                <tr class="active">
+                    <th class="col-xs-9">活动</th>
+                </tr>
+                {% for a in activity_list %}
+                    <tr>
+                        <td><a href="/showactivity/{{ a.id }}">{{ a.title }}</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </div>
+</div>
 
 </body>
 </html>

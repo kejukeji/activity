@@ -20,21 +20,36 @@
 </head>
 
 
-<body class="oran-bg">
+<body>
+<div class="container">
+    <div>
+        <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="#">主页</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+    </div>
+    <br>
 
-<table class="table table-bordered">
-  <tr class="active">
-      <th class="col-xs-6">姓名</th>
-      <th class="col-xs-6">手机号</th>
-  </tr>
-  {% for a in regist_list %}
-    <tr>
-        <td>{{ a.name }}</td>
-        <td>{{ a.mobile }}</td>
-    </tr>
-  {% endfor %}
-</table>
+    <div style="border-top: 20px;border-bottom: 20px">
+        <hr>
+    </div>
 
+    <div>
+        <table class="table table-bordered">
+            <tr class="active">
+                <th class="col-xs-6">姓名</th>
+                <th class="col-xs-6">手机号</th>
+            </tr>
+            {% for a in regist_list %}
+                <tr>
+                    <td>{{ a.name }}</td>
+                    <td>{{ a.mobile }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
 
 </body>
 </html>

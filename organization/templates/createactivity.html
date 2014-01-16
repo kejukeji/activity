@@ -11,48 +11,61 @@
 
     <title>创建活动</title>
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
 </head>
 <body>
 
+<div class="container">
+    <div>
+        <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="#">主页</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+    </div>
+    <br>
+    <div style="border-top: 20px;border-bottom: 20px">
+        <hr>
+    </div>
 
-<div>
-    <form class="form-horizontal" onsubmit="return checkForm()" role="form" action="/sponactivity" method="POST">
-        <div>
-            <h4 class="modal-title" id="myModalLabel">输入您的活动相关信息</h4>
-        </div>
+    <div class="jumbotron">
+        <form class="form-horizontal" onsubmit="return checkForm()" role="form" action="/sponactivity" method="POST">
+            <div class="navbar-text navbar-left">
+                <h3 style="font-family: '微软雅黑'">请输入活动相关信息</h3>
+            </div>
 
-        <div>
-            <div class="form-group row">
-                <div>
-                    <input type="title" class="form-control" id="title" name="title" placeholder="请输入活动名称">
+            <div>
+                <div class="form-group row">
+                    <div>
+                        <input type="title" class="form-control" id="title" name="title" placeholder="请输入活动名称">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div>
+                        <input type="sponsor" class="form-control" id="sponsor" name="sponsor" placeholder="请输入发起者姓名">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div>
+                        <textarea type="content" class="form-control" id="content" name="content"
+                                  placeholder="请输入活动内容"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="请输入管理密码">
+                    </div>
                 </div>
             </div>
-            <div class="form-group row">
-                <div>
-                    <input type="sponsor" class="form-control" id="sponsor" name="sponsor" placeholder="请输入发起者姓名">
-                </div>
+            <div style="text-align: center">
+                <button type="submit" class="btn btn-primary">保存</button>
             </div>
-            <div class="form-group row">
-                <div>
-                    <textarea type="content" class="form-control" id="content" name="content"
-                              placeholder="请输入活动内容"></textarea>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="请输入管理密码">
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">保存</button>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
-
 </body>
 <script type="text/javascript">
 

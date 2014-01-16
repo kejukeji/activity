@@ -37,132 +37,160 @@
 </head>
 
 
-<body class="oran-bg">
-<div class="row oran-iv">
-    <div class="oran-iv">
-        <h3>{{ activity.title }}</h3>
+<body>
+<div class="container" style="padding: 8px">
+    <div>
+        <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="#">主页</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
     </div>
-</div>
-<div class="row oran-iv">
-    <div class="oran-iv">
-        <h6>
-            <small>{{ activity.date }}</small>
-            &nbsp;&nbsp;&nbsp;阅读
-            <small>{{ activity.readNo }}</small>
-            &nbsp;&nbsp;&nbsp;分享
-            <small>{{ activity.shareNo }}</small>
-        </h6>
-    </div>
-</div>
-<div class="row oran-iv">
-    <div class="oran-iv oran-cont">
-        <h4>{{ activity.content }}</h4>
-    </div>
-</div>
-<div class="row oran-iv">
-    <div class="col-xs-6 oran-iv">
-        <h6>
-            已有{{ regist_count }}人报名
-        </h6>
-    </div>
-    <div class="col-xs-6">
-        <button  data-toggle="modal" data-target="#myModal2"  class="btn btn-default btn-xs">查看已报名人员联系电话</button>
-    </div>
-</div>
-<table class="table table-bordered">
-  <tr class="active">
-      <th class="col-xs-6">姓名</th>
-      <th class="col-xs-6">时间</th>
-  </tr>
-  {% for a in regist_list %}
-    <tr>
-        <td>{{ a.name }}</td>
-        <td>{{ a.send_date }}</td>
-    </tr>
-  {% endfor %}
+    <br>
 
-</table>
-<button data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg btn-block">我也要报名</button>
-<button onclick="window.location.href='/index'" type="button" class="btn btn-default btn-lg btn-block">组织活动</button>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <form class="form-horizontal" onsubmit="return checkNameMobile()" role="form" action="/regist/{{ activity.id }}" method="POST">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">输入您的信息</h4>
-                </div>
-
-                <div class="modal-body">
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <input type="name" class="form-control" id="inputName" name="inputName" placeholder="请输入您的姓名">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <input type="mobile" class="form-control" id="inputMobile" name="inputMobile" placeholder="请输入您的手机号">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer" id="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="submit" id="subButton" class="btn btn-primary" data-container="#modal-footer" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="111" title="111">保存</button>
-                </div>
-
+    <div style="border-top: 20px;border-bottom: 20px">
+        <hr>
+    </div>
+    <div class="jumbotron" style="padding: 10px;margin: 3px">
+        <div class="row oran-iv">
+            <div class="oran-iv">
+                <h3 style="font-family: '微软雅黑'">{{ activity.title }}</h3>
             </div>
-        </form>
+        </div>
+        <div class="row oran-iv">
+            <div class="oran-iv">
+                <h6>
+                    <small>{{ activity.date }}</small>
+                    &nbsp;&nbsp;&nbsp;阅读
+                    <small>{{ activity.readNo }}</small>
+                    &nbsp;&nbsp;&nbsp;分享
+                    <small>{{ activity.shareNo }}</small>
+                </h6>
+            </div>
+        </div>
+        <div class="row oran-iv">
+            <div class="oran-iv oran-cont">
+                <h4>{{ activity.content }}</h4>
+            </div>
+        </div>
     </div>
-</div>
+    <div class="jumbotron" style="padding: 10px;margin: 0px">
+        <div class="row oran-iv">
+            <div class="col-xs-5 oran-iv" style="height: 30px">
+                <h6>
+                    已有{{ regist_count }}人报名
+                </h6>
+            </div>
+            <div class="col-xs-7" style="height: 30px">
+                <button style="vertical-align: 60%" data-toggle="modal" data-target="#myModal2" class="btn btn-default btn-xs">查看已报名人员联系电话</button>
+            </div>
+        </div>
+    </div>
+        <table class="table table-bordered">
+            <tr class="active">
+                <th class="col-xs-6">姓名</th>
+                <th class="col-xs-6">时间</th>
+            </tr>
+            {% for a in regist_list %}
+                <tr>
+                    <td>{{ a.name }}</td>
+                    <td>{{ a.send_date }}</td>
+                </tr>
+            {% endfor %}
 
+        </table>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <form class="form-horizontal" role="form" onsubmit="return checkPassword()" action="/checkpassword/{{ activity.id }}" method="POST">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">输入您的管理密码</h4>
-                </div>
+    <button data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg btn-block">我也要报名</button>
+    <button onclick="window.location.href='/index'" type="button" class="btn btn-default btn-lg btn-block">组织活动</button>
 
-                <div class="modal-body">
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <input type="passwordcheck" class="form-control" id="passwordcheck" name="passwordcheck" placeholder="请输入您的管理密码">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form class="form-horizontal" onsubmit="return checkNameMobile()" role="form"
+                  action="/regist/{{ activity.id }}" method="POST">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">输入您的信息</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <input type="name" class="form-control" id="inputName" name="inputName"
+                                       placeholder="请输入您的姓名">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <input type="mobile" class="form-control" id="inputMobile" name="inputMobile"
+                                       placeholder="请输入您的手机号">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="submit"  class="btn btn-primary">提交</button>
-                </div>
+                    <div class="modal-footer" id="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="submit" id="subButton" class="btn btn-primary" data-container="#modal-footer"
+                                data-toggle="popover" data-placement="top"
+                                data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                                data-original-title="111" title="111">保存
+                        </button>
+                    </div>
 
-            </div>
-        </form>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form class="form-horizontal" role="form" onsubmit="return checkPassword()"
+                  action="/checkpassword/{{ activity.id }}" method="POST">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">输入您的管理密码</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <input type="passwordcheck" class="form-control" id="passwordcheck" name="passwordcheck"
+                                       placeholder="请输入您的管理密码">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 </body>
 <script type="text/javascript">
 
-    function checkNameMobile(){
-        if(($('#inputName').val().length==0)||($('#inputName').val().length>30)){
+    function checkNameMobile() {
+        if (($('#inputName').val().length == 0) || ($('#inputName').val().length > 30)) {
             alert("你的名字输入长度有误，请重新输入！");
             return false;
-        }else if(!$("#inputMobile").val().match(/^1(3|4|5|8)[0-9]{9}$/)){
+        } else if (!$("#inputMobile").val().match(/^1(3|4|5|8)[0-9]{9}$/)) {
             alert("你的手机号格式错误，请检查后重新输入！");
             return false;
-        }else{
+        } else {
             alert('保存成功');
             return true;
         }
     }
 
-    function checkPassword(){
-        if(($('#passwordcheck').val().length<6)||($('#passwordcheck').val().length>16)){
+    function checkPassword() {
+        if (($('#passwordcheck').val().length < 6) || ($('#passwordcheck').val().length > 16)) {
             alert("你的密码输入长度有误，请重新输入！");
             return false;
-        }else{
+        } else {
             return true;
         }
     }
