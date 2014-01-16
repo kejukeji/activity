@@ -9,14 +9,14 @@ MENU_STRING = """
            "name": "活动主页",
            "sub_button": [
                {
-                   "type": "click",
+                   "type":"view",
                    "name": "发起活动",
-                   "key": "startActivity"
+                   "url":"http://bilibili.kejukeji.com/createactivity"
                },
                {
-                   "type": "click",
+                   "type":"view",
                    "name": "查看活动",
-                   "key": "viewActivity"
+                   "url":"http://bilibili.kejukeji.com/showactivitylist"
                }
            ]
        },
