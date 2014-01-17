@@ -34,6 +34,71 @@
             padding-top: 15px;
         }
     </style>
+    <script type="text/javascript">
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        WeixinJSBridge.call('hideToolbar');
+    });
+    var dataForWeixin={
+        appId: "wx1426988e8c227dee",
+        MsgImg: "http://bilibili.kejukeji.com/static/image/huodong1.jpg",
+        TLImg: "http://bilibili.kejukeji.com/static/image/huodong1.jpg",
+        url: "{{ content_url }}",
+        title: "{{ pub.title }}",
+        desc: "{{ activity.content }}",
+        fakeid:"",
+        callback:function(){}
+    };
+    (function(){
+        var onBridgeReady=function(){
+            WeixinJSBridge.on('menu:share:appmessage', function(argv){
+                WeixinJSBridge.invoke('sendAppMessage',{
+                    "appid":dataForWeixin.appId,
+                    "img_url":dataForWeixin.MsgImg,
+                    "img_width":"120",
+                    "img_height":"120",
+                    "link":dataForWeixin.url,
+                    "desc":dataForWeixin.desc,
+                    "title":dataForWeixin.title
+            }, function(res){(dataForWeixin.callback)();});
+        });
+        WeixinJSBridge.on('menu:share:timeline', function(argv){
+            (dataForWeixin.callback)();
+            WeixinJSBridge.invoke('shareTimeline',{
+                "img_url":dataForWeixin.TLImg,
+                "img_width":"120",
+                "img_height":"120",
+                "link":dataForWeixin.url,
+                "desc":dataForWeixin.desc,
+                "title":dataForWeixin.title
+        }, function(res){});
+    });
+
+    WeixinJSBridge.on('menu:share:weibo', function(argv){
+        WeixinJSBridge.invoke('shareWeibo',{
+            "content":dataForWeixin.title,
+            "url":dataForWeixin.url
+    }, function(res){(dataForWeixin.callback)();});
+    });
+    WeixinJSBridge.on('menu:share:facebook', function(argv){
+        (dataForWeixin.callback)();
+        WeixinJSBridge.invoke('shareFB',{
+            "img_url":dataForWeixin.TLImg,
+            "img_width":"120",
+            "img_height":"120",
+            "link":dataForWeixin.url,
+            "desc":dataForWeixin.desc,
+            "title":dataForWeixin.title
+    }, function(res){});
+    });
+    };
+        if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+    })();
+</script>
 </head>
 
 
@@ -101,7 +166,7 @@
         </table>
 
     <button data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg btn-block">我也要报名</button>
-    <button onclick="window.location.href='/index'" type="button" class="btn btn-default btn-lg btn-block">组织活动</button>
+    <button onclick="window.location.href='/createactivity'" type="button" class="btn btn-default btn-lg btn-block">组织活动</button>
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

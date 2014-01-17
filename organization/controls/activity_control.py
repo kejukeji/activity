@@ -6,6 +6,7 @@ from datetime import datetime
 from organization.services.regist_service import *
 from organization.services.custom_service import *
 from organization.controls.custom_control import *
+from organization.restfuls.verify import *
 import hashlib
 
 def show_activity(activity_id):
@@ -26,12 +27,14 @@ def show_activity(activity_id):
         custom_result = get_by_custom_id(regist_result.custom_Id)
         custom_result.send_date = regist_result.send_date
         regist_list.append(custom_result)
-
+    content_url = url(activity_id)
 
     return render_template('/showactivity.html',
                            activity = activity,
                            regist_list = regist_list,
-                           regist_count = regist_count)
+                           regist_count = regist_count,
+                           content_url = content_url
+                            )
 
 def activity_commit():
     if request.method == 'POST':

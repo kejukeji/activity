@@ -20,15 +20,28 @@
 </head>
 
 
-<body class="oran-bg">
-<div>
+<body>
+<div class="container" style="padding: 8px">
+    <div>
+        <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="#">主页</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+    </div>
+    <br>
+
+    <div style="border-top: 20px;border-bottom: 20px">
+        <hr>
+    </div>
+    <div class="jumbotron" style="padding: 10px;margin: 3px">
     <h3>{{ error_message }}</h3>
 
 </div>
 
 <button onclick="window.location.href='/showactivity/{{ activity_id }}'" type="button"   class="btn btn-default btn-lg btn-block">返回活动</button>
 <button onclick="window.location.href='/index'" type="button" class="btn btn-info btn-lg btn-block">返回主页</button>
-
+</div>
 </body>
 
 </html>
