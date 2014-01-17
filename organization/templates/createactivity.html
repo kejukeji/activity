@@ -86,6 +86,12 @@
         } else if (($('#sponsor').val().length == 0) || ($('#sponsor').val().length > 50)) {
             alert("你的发布者长度输入错误，请检查后重新输入！");
             return false;
+        } else if (($('#act_time').val().length == 0) || ($('#sponsor').val().length > 50)) {
+            alert("你的发布者长度输入错误，请检查后重新输入！");
+            return false;
+        } else if (($('#address').val().length == 0) || ($('#sponsor').val().length > 200)) {
+            alert("你的发布者长度输入错误，请检查后重新输入！");
+            return false;
         }
         else if (($('#content').val().length < 4) || ($('#content').val().length > 2048)) {
             alert("你的活动内容长度错误，请检查后重新输入！");
