@@ -51,6 +51,8 @@ def html_activity(form):
     return Activity(title = form.get('title'),
                     content = form.get('content'),
                     sponsor = form.get('sponsor'),
+                    act_time = form.get('act_time'),
+                    address = form.get('address'),
                     password = hashlib.new('md5', form.get('password')).hexdigest(),
                     date = dateformat)
 
