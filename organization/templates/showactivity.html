@@ -105,11 +105,7 @@
 <body>
 <div class="container" style="padding: 8px">
     <div>
-        <ul class="nav nav-pills pull-right">
-            <li class="active"><a href="#">主页</a></li>
-            <li><a href="#">关于我们</a></li>
-            <li><a href="#">联系我们</a></li>
-        </ul>
+        <h2 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">微活动</h2>
     </div>
     <br>
 
@@ -135,11 +131,11 @@
         </div>
         <div class="row oran-iv">
             <div class="oran-iv oran-cont">
+
+                <h6>活动时间：{{ activity.act_time }}</h6>
+                <h6>活动地点：{{ activity.address }}</h6>
                 <h4>{{ activity.content }}</h4>
-                <br>
-                <h4>活动时间：{{ activity.act_time }}</h4>
-                <br>
-                <h4>活动地点：{{ activity.address }}</h4>
+
             </div>
         </div>
     </div>
