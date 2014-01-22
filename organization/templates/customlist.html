@@ -40,7 +40,7 @@
             {% for a in regist_list %}
                 <tr>
                     <td>{{ a.name }}</td>
-                    <td><a href="tel:{{ a.mobile }}"></a> </td>
+                    <td><a href="tel:{{ a.mobile }}">{{ a.mobile }}</a> </td>
                 </tr>
             {% endfor %}
         </table>
