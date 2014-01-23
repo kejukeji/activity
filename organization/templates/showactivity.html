@@ -35,77 +35,91 @@
         }
     </style>
     <script type="text/javascript">
-    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-        WeixinJSBridge.call('hideToolbar');
-    });
-    var dataForWeixin={
-        appId: "wx1426988e8c227dee",
-        MsgImg: "http://bilibili.kejukeji.com/static/image/huodong1.jpg",
-        TLImg: "http://bilibili.kejukeji.com/static/image/huodong1.jpg",
-        url: "{{ content_url }}",
-        title: "{{ activity.title }}",
-        desc: "{{ activity.content }}",
-        fakeid:"",
-        callback:function(){}
-    };
-    (function(){
-        var onBridgeReady=function(){
-            WeixinJSBridge.on('menu:share:appmessage', function(argv){
-                WeixinJSBridge.invoke('sendAppMessage',{
-                    "appid":dataForWeixin.appId,
-                    "img_url":dataForWeixin.MsgImg,
-                    "img_width":"120",
-                    "img_height":"120",
-                    "link":dataForWeixin.url,
-                    "desc":dataForWeixin.desc,
-                    "title":dataForWeixin.title
-            }, function(res){(dataForWeixin.callback)();});
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            WeixinJSBridge.call('hideToolbar');
         });
-        WeixinJSBridge.on('menu:share:timeline', function(argv){
-            (dataForWeixin.callback)();
-            WeixinJSBridge.invoke('shareTimeline',{
-                "img_url":dataForWeixin.TLImg,
-                "img_width":"120",
-                "img_height":"120",
-                "link":dataForWeixin.url,
-                "desc":dataForWeixin.desc,
-                "title":dataForWeixin.title
-        }, function(res){});
-    });
+        var dataForWeixin = {
+            appId: "wx1426988e8c227dee",
+            MsgImg: "http://bilibili.kejukeji.com/static/image/huodong1.jpg",
+            TLImg: "http://bilibili.kejukeji.com/static/image/huodong1.jpg",
+            url: "{{ content_url }}",
+            title: "{{ activity.title }}",
+            desc: "{{ activity.content }}",
+            fakeid: "",
+            callback: function () {
+            }
+        };
+        (function () {
+            var onBridgeReady = function () {
+                WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+                    WeixinJSBridge.invoke('sendAppMessage', {
+                        "appid": dataForWeixin.appId,
+                        "img_url": dataForWeixin.MsgImg,
+                        "img_width": "120",
+                        "img_height": "120",
+                        "link": dataForWeixin.url,
+                        "desc": dataForWeixin.desc,
+                        "title": dataForWeixin.title
+                    }, function (res) {
+                        (dataForWeixin.callback)();
+                    });
+                });
+                WeixinJSBridge.on('menu:share:timeline', function (argv) {
+                    (dataForWeixin.callback)();
+                    WeixinJSBridge.invoke('shareTimeline', {
+                        "img_url": dataForWeixin.TLImg,
+                        "img_width": "120",
+                        "img_height": "120",
+                        "link": dataForWeixin.url,
+                        "desc": dataForWeixin.desc,
+                        "title": dataForWeixin.title
+                    }, function (res) {
+                    });
+                });
 
-    WeixinJSBridge.on('menu:share:weibo', function(argv){
-        WeixinJSBridge.invoke('shareWeibo',{
-            "content":dataForWeixin.title,
-            "url":dataForWeixin.url
-    }, function(res){(dataForWeixin.callback)();});
-    });
-    WeixinJSBridge.on('menu:share:facebook', function(argv){
-        (dataForWeixin.callback)();
-        WeixinJSBridge.invoke('shareFB',{
-            "img_url":dataForWeixin.TLImg,
-            "img_width":"120",
-            "img_height":"120",
-            "link":dataForWeixin.url,
-            "desc":dataForWeixin.desc,
-            "title":dataForWeixin.title
-    }, function(res){});
-    });
-    };
-        if (document.addEventListener) {
-            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-        } else if (document.attachEvent) {
-            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-        }
-    })();
-</script>
+                WeixinJSBridge.on('menu:share:weibo', function (argv) {
+                    WeixinJSBridge.invoke('shareWeibo', {
+                        "content": dataForWeixin.title,
+                        "url": dataForWeixin.url
+                    }, function (res) {
+                        (dataForWeixin.callback)();
+                    });
+                });
+                WeixinJSBridge.on('menu:share:facebook', function (argv) {
+                    (dataForWeixin.callback)();
+                    WeixinJSBridge.invoke('shareFB', {
+                        "img_url": dataForWeixin.TLImg,
+                        "img_width": "120",
+                        "img_height": "120",
+                        "link": dataForWeixin.url,
+                        "desc": dataForWeixin.desc,
+                        "title": dataForWeixin.title
+                    }, function (res) {
+                    });
+                });
+            };
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        })();
+    </script>
 </head>
 
 
 <body>
 <div class="container" style="padding: 8px">
-    <div>
-        <h2 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">微活动</h2>
+    <div class="row">
+        <div class="col-xs-8">
+            <h2 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">微活动</h2>
+        </div>
+        <div class="col-xs-4">
+            <button data-toggle="modal" data-target="#myModal3" type="button" class="btn btn-info"
+                    style="margin-top: 20px;padding: 0"><img src="/static/image/share.png"></button>
+
+        </div>
     </div>
     <br>
 
@@ -146,26 +160,30 @@
                 </h6>
             </div>
             <div class="col-xs-7" style="height: 30px">
-                <button style="vertical-align: 50%" data-toggle="modal" data-target="#myModal2" class="btn btn-default btn-xs">查看已报名人员联系电话</button>
+                <button style="vertical-align: 50%" data-toggle="modal" data-target="#myModal2"
+                        class="btn btn-default btn-xs">查看已报名人员联系电话
+                </button>
             </div>
         </div>
     </div>
-        <table class="table table-bordered">
-            <tr class="active">
-                <th class="col-xs-6">姓名</th>
-                <th class="col-xs-6">时间</th>
+    <table class="table table-bordered">
+        <tr class="active">
+            <th class="col-xs-6">姓名</th>
+            <th class="col-xs-6">时间</th>
+        </tr>
+        {% for a in regist_list %}
+            <tr>
+                <td>{{ a.name }}</td>
+                <td>{{ a.send_date }}</td>
             </tr>
-            {% for a in regist_list %}
-                <tr>
-                    <td>{{ a.name }}</td>
-                    <td>{{ a.send_date }}</td>
-                </tr>
-            {% endfor %}
+        {% endfor %}
 
-        </table>
+    </table>
 
     <button data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg btn-block">我也要报名</button>
-    <button onclick="window.location.href='/createactivity'" type="button" class="btn btn-default btn-lg btn-block">组织活动</button>
+    <button onclick="window.location.href='/createactivity'" type="button" class="btn btn-default btn-lg btn-block">
+        组织活动
+    </button>
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -234,6 +252,41 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">选择您的分享</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <a href="http://v.t.sina.com.cn/share/share.php?url=window.location.href&title=微活动分享" class="list-group-item"
+                           id="share-xlweibo"><img src="/static/image/sinawb.png" alt="">新浪微博</a>
+                    </div>
+                    <div class="col-sm-10">
+                        <a href="http://v.t.qq.com/share/share.php?url=window.location.href&title=微活动分享"
+                           class="list-group-item" id="share-txweibo"><img src="/static/image/txwb.png" alt="">腾讯微博</a>
+                    </div>
+                    <div class="col-sm-10">
+                        <a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=window.location.href&title=微活动分享"
+                           class="list-group-item" id="share-qqkongjian"><img src="/static/image/qqzone.png" alt="">QQ空间</a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
 </body>
 <script type="text/javascript">
 
