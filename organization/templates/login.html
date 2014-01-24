@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<SCRIPT language="javascript">
+<!--
+ function check()
+ {
+  if(document.form1.username.value=="")
+  {
+   alert("请填写登录名称！");
+   return false;
+  }
+  if(document.form1.password.value=="")
+  {
+   alert("请填写登录密码！");
+   return false;
+  }
+ }
+-->
+</SCRIPT>
+ <div id="text_hint" style="position:relative;top:95px;left:610px;color:#ccc" onclick="inputClick()">
+<if text="${!empty office.mobile}"></if>手机号
+</div>
+ <script type="text/javascript">
+ function inputClick()
+ {
+  document.getElementById('mobile').focus();
+  document.getElementById('text_hint').innerHTML=' ';
+   }
+ </script>
+<html>
+<head>
+    <title>登陆微活动</title>
+
+</head>
+
+<body>
+<center>
+    <br>
+    <br>
+    <td>欢迎登陆微活动，开始创建你的私人聚会吧!</td>
+    <br>
+    <br>
+</center>
+
+<form action="/login_to" method="post" name="form1">
+  <table width="434" height="119" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#ECE9D8">
+    <tr>    </tr>
+    <tr>
+      <td width="144" align="right">用户名：</td>
+      <td width="141"><label>
+        <input id = "mobile" name="mobile" type="text" size="20">
+          <br><br>
+      </label></td>
+      <td width="149"><span class="STYLE1"></span></td>
+    </tr>
+    <tr>
+      <td align="right">密码：</td>
+      <td><label>
+          <input name="password" type="password" size="21" />
+           <br>
+           <br>
+      </label></td>
+      <td><span class="STYLE1"></span></td>
+    </tr>
+      {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul>
+ {% for message in messages %}
+  <li>{{ message }} </li>
+      {% endfor %}
+ </ul>
+    {% endif %}
+{% endwith %}
+    <tr>
+      <td colspan="3" align="center"><label>
+      <input type="submit"  value="登录"  onClick="javascript:check()"/>
+        <br>
+          <br>
+          <br>
+
+
+      </label>
+    </td>
+    </tr>
+  </table>
+</form>
+<center>
+    不然先  <a href="/register" class="btn">注册</a>吧 /、/
+</center>
+   </body>
+ </html>

@@ -6,6 +6,8 @@ from organization.controls.activity_control import *
 from organization.controls.regist_control import *
 from organization.controls.custom_control import *
 from organization.controls.index import *
+from organization.controls.login import *
+from organization.views import login_action
 from organization.restfuls.verify import *
 from organization.restfuls.menu import *
 
@@ -29,3 +31,5 @@ app.add_url_rule('/sponactivity', 'activity_commit', activity_commit, methods=['
 app.add_url_rule('/checkpassword/<int:activity_id>', 'check_password', check_password, methods=['GET', 'POST'])
 app.add_url_rule('/start/activity', 'activity_s', activity_s, methods=['GET','POST'])
 app.add_url_rule('/createmenu', 'create_menu', create_menu, methods=['GET','POST'])
+app.add_url_rule('/login','login',login,methods=['GET','POST'])
+app.add_url_rule('/login_to','login_action',login_action,methods=['GET','POST'])
