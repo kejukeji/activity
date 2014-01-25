@@ -1,22 +1,4 @@
 <html>
-<SCRIPT language="javascript">
-<!--
- function check()
- {
-  if(document.form1.mobile.value=="")
-  {
-   alert("请填写登录名称！");
-   return false;
-  }
-  if(document.form1.password.value=="")
-  {
-   alert("请填写登录密码！");
-   return false;
-  }
- }
--->
-</SCRIPT>
-
 <head>
     <title>登陆微活动</title>
 
@@ -31,14 +13,14 @@
     <br>
 </center>
 
-<form action="/login_action" method="post" name="form1">
+<form action="/login_action" method="post" name="form1" onsubmit="return check()">
   <table width="434" height="119" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#ff0000">
     <tr>    </tr>
     <tr>
       <td width="144" align="right">用户名：</td>
       <td width="141">
           <label>
-        <input id = "mobile" name="mobile" type="text" size="20">
+        <input id = "mobile" name="mobile" type="text" size="20"  placeholder="你的手机号">
           <br><br>
       </label>
       </td>
@@ -58,7 +40,7 @@
     <tr>
       <td colspan="3" align="center">
           <label>
-      <input type="submit"  value="登录"  onClick="javascript:check()">
+      <input type="SUBMIT"  value="登录">
         <br>
           <br>
           <br>
@@ -66,18 +48,39 @@
     </td>
     </tr>
   </table>
+  <center>
+
     {% with messages = get_flashed_messages() %}
   {% if messages %}
   <ul>
  {% for message in messages %}
-  <li>{{ message }} </li>
+  <li style="color:#ff0000">{{ message }} </li>
       {% endfor %}
  </ul>
     {% endif %}
 {% endwith %}
+ </center>
 </form>
 <center>
-    不然先  <a href="/register" class="btn">注册</a>吧 /、/
+    不然先  <a href="/register" target="_blank" class="btn">注册</a>吧 /、/
 </center>
    </body>
  </html>
+
+<SCRIPT language="javascript">
+<!--
+ function check()
+ {
+  if(document.form1.mobile.value=="")
+  {
+   alert("请填写登录名称！");
+   return false;
+  }
+  if(document.form1.password.value=="")
+  {
+   alert("请填写登录密码！");
+   return false;
+  }
+ }
+-->
+</SCRIPT>

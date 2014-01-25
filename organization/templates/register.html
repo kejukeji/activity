@@ -4,15 +4,25 @@
     <title>注册</title>
 </head>
 <body>
-<br>
-<br>
+
 <div style="position:relative;left:360px;top:0px;color:#ff00dd"><b>微聚聚客</b></div>
 <center>
 <t></t><b>注 册 中 心 </b>
  </center>
-<br><br>
-      <form action="/register_to" method="post">
-        <table width="300" height="100" border="0" align="center" cellpadding="5" cellspacing="0" bordercolor="#ff0000">
+<center>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul>
+ {% for message in messages %}
+  <li style="color:#ff0000">{{ message }} </li>
+      {% endfor %}
+ </ul>
+    {% endif %}
+{% endwith %}
+</center>
+
+      <form action="/register_to" method="post" onsubmit="return check_Info()" name="re_form">
+        <table width="300" height="100" border="0" align="center" cellpadding="3" cellspacing="0" bordercolor="#ff0000" style="color:#0000ff">
             <tr>
         <td width=100" alian="right">用户名：</td>
         &nbsp;&nbsp;
@@ -51,23 +61,42 @@
             <tr>
 
                 <td width = 140 align = "center" colspan="6" style="color:#00ff00">
-        <input type="submit"  name= "register" value="注册" style="color:#ff00dd">
+        <input type="SUBMIT"  name= "register" value="注册" style="color:#ff00dd">
 </td>
             </tr>
  </table>
-  <center>
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-  <ul>
- {% for message in messages %}
-  <li>{{ message }} </li>
-      {% endfor %}
- </ul>
-    {% endif %}
-{% endwith %}
-</center>
+
 
 </form>
 </body>
 
 </html>
+
+<SCRIPT language="javascript">
+<!--
+ function check_Info()
+ {
+ if(document.re_form.username.value=="")
+ {
+  alert("请填写用户名昵称");
+  return false;
+ }
+  if(document.re_form.mobile.value=="")
+  {
+   alert("请填写手机号！");
+   return false;
+  }
+
+  if(document.re_form.password.value=="")
+  {
+   alert("请设置你的密码！我不想知道你的隐私{——}");
+   return false;
+  }
+  if(document.re_form.repassword.value=="")
+ {
+  alert("请确认密码！");
+  return false;
+ }
+ }
+-->
+</SCRIPT>

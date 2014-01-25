@@ -16,7 +16,7 @@ class UserClass(Base):
     mobile = Column(String(30), nullable=False)
     password = Column(String(6),nullable=False)
 def query(mobile,password):
-    user = UserClass.query.filter(UserClass.mobile == mobile,UserClass.password == password).first
+    user = UserClass.query.filter(UserClass.mobile == mobile,UserClass.password == password).first()
     if user:
         return True
     else:
@@ -29,6 +29,12 @@ def add(name,mobile,password):
     except:
         return False
     return True
+def query_mobile(mobile):
+    user = UserClass.query.filter(UserClass.mobile == mobile).first()
+    if user:
+        return True
+    else:
+        return False
 
 
 
