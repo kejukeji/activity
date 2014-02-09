@@ -41,10 +41,25 @@ def activity_commit():
         Activity = html_activity(request.form)
         Activity.readNo = 1
         save_activity(Activity)
+        #add_sponsor(Activity.sponsor, Activity.id)
+
+
         #return show_activity(Activity.id)
         return redirect(url_for("show_activity", activity_id=Activity.id))
 
 
+def add_sponsor(sponsor, activity_id):
+        Custom = html_custom(request.form, sponsor)
+        save_custom(Custom)
+
+        RegistDb = Regist(custom_Id = Custom.id,
+                          activity_Id = activity_id,
+                          send_date = str(datetime.now()))
+        save_regist(RegistDb)
+        return None
+def html_custom(form, sponsor):
+    return Custom(name = sponsor,
+                   mobile = form.get('inputMobile'))
 
 def html_activity(form):
     dateformat = str(datetime.now())

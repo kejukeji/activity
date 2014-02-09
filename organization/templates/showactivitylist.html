@@ -51,6 +51,7 @@
                 {% for a in activity_list %}
                     <tr>
                         <td><a href="/showactivity/{{ a.id }}">{{ a.title }}</a></td>
+                         <td>{{ a.sponsor }}</td>
                     </tr>
                 {% endfor %}
             </table>

@@ -32,6 +32,12 @@
             <div class="navbar-text navbar-left">
                 <h3 style="font-family: '微软雅黑'">请输入活动相关信息</h3>
             </div>
+             <div>
+                <div class="form-group row">
+                    <div>
+                        <input type="mobile" class="form-control" id="inputMobile" name="inputMobile" placeholder="请输入你的手机号码">
+                    </div>
+                </div>
 
             <div>
                 <div class="form-group row">
@@ -76,7 +82,11 @@
 <script type="text/javascript">
 
     function checkForm() {
-        if (($('#title').val().length == 0) || ($('#title').val().length > 255)) {
+         if (!$("#inputMobile").val().match(/^1(3|4|5|8)[0-9]{9}$/)) {
+            alert("你的手机号格式错误，请检查后重新输入！");
+            return false;
+
+         }else if (($('#title').val().length == 0) || ($('#title').val().length > 255)) {
             alert("你的标题输入长度有误，请重新输入！");
             return false;
         } else if (($('#sponsor').val().length == 0) || ($('#sponsor').val().length > 50)) {

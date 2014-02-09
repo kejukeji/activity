@@ -26,6 +26,7 @@ def html_custom(form, activity_id):
 
 
 def show_custom_list(activity_id):
+    activity = get_activity(activity_id)
     regist_result = get_by_activity_id(activity_id)
     regist_count = get_count_by_activity_id(activity_id)
     regist_list = []
@@ -42,5 +43,6 @@ def show_custom_list(activity_id):
 
     return render_template('/customlist.html',
                            regist_list = regist_list,
-                           regist_count = regist_count)
+                           regist_count = regist_count,
+                           activity = activity)
 

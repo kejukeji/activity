@@ -14,7 +14,9 @@ class UserClass(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(30), nullable=False)
     mobile = Column(String(30), nullable=False)
-    password = Column(String(6),nullable=False)
+    password = Column(String(50),nullable=False)
+    openId = Column(String(50), nullable=True)
+
 def query(mobile,password):
     user = UserClass.query.filter(UserClass.mobile == mobile,UserClass.password == password).first()
     if user:

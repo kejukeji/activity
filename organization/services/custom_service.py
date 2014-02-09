@@ -1,5 +1,5 @@
 # coding: UTF-8
-from organization.models.t_custom import CustomClass as Custom
+from organization.models.t_custom import  CustomClass  as Custom
 from organization.models.database import *
 
 
