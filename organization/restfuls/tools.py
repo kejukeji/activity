@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from organization.models.t_user import UserClass
+from organization.models.t_custom import CustomClass
 from organization.models.t_activity import ActivityClass
 
 def get_token(custom_id):
@@ -19,7 +19,7 @@ def parse_request(request_dict, args):
 
 
 def get_pub(custom_id):
-    return UserClass.query.filter(UserClass.open_id == custom_id).first()
+    return CustomClass.query.filter(CustomClass.open_id == custom_id).first()
 
 def get_activity_weixin(activity_id):
     return ActivityClass.query.filter(ActivityClass.id == activity_id).first()

@@ -7,7 +7,7 @@ from .webchat import WebChat
 from .tools import *
 from organization.models.t_activity import ActivityClass as Activity
 from organization.models.t_regist import RegistClass as Regist
-from organization.models.t_user import UserClass as Custom
+from organization.models.t_custom import CustomClass as Custom
 from sqlalchemy import desc
 
 import string
