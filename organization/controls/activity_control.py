@@ -41,7 +41,7 @@ def activity_commit():
         Activity = html_activity(request.form)
         Activity.readNo = 1
         save_activity(Activity)
-        #add_sponsor(Activity.sponsor, Activity.id)
+        add_sponsor(Activity.sponsor, Activity.id)
 
 
         #return show_activity(Activity.id)
