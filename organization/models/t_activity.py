@@ -21,6 +21,6 @@ class ActivityClass(Base):
     content = Column(String(2048), nullable=False)
     act_time = Column(String(50), nullable=False)
     address = Column(String(200), nullable=False)
-    readNo = Column(Integer(20), nullable=True)
-    shareNo = Column(Integer(20), nullable=True)
+    readNo = Column(Integer, nullable=True)
+    shareNo = Column(Integer, nullable=True)
     password = Column(String(50), nullable=False)

@@ -47,10 +47,12 @@
             <table class="table table-bordered">
                 <tr class="active">
                     <th class="col-xs-9">活动</th>
+                     <th class="col-xs-9">活动发起人</th>
                 </tr>
                 {% for a in activity_list %}
                     <tr>
                         <td><a href="/showactivity/{{ a.id }}">{{ a.title }}</a></td>
+                         <td>{{ a.sponsor }}</td>
                     </tr>
                 {% endfor %}
             </table>
