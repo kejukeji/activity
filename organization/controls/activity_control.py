@@ -92,3 +92,30 @@ def check_password(activity_id):
 
 def create_activity():
     return render_template('createactivity.html')
+def renew(activity_list_id):
+    activity = get_activity(activity_list_id)
+    password_html = hashlib.new('md5', request.form.get('passwordcheck')).hexdigest()
+    password = find_pass_by_id(activity_list_id)
+    if password == password_html:
+       return render_template('renew.html',activity = activity)
+    else:
+        error_message = '对不起，密码错误无权修改！'
+        return render_template('error.html',
+                               error_message = error_message,
+                               activity_id = activity_list_id)
+
+def renew_activity(activity_id):
+    title = request.form.get('title')
+    time = request.form.get('time')
+    address = request.form.get('address')
+    content = request.form.get('content')
+    activity = get_activity(activity_id)
+    activity.title = title
+    activity.act_time = time
+    activity.address = address
+    activity.content = content
+    save_activity(activity)
+    return redirect(url_for("show_activity", activity_id=activity.id))
+
+
+

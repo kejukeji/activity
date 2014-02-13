@@ -37,28 +37,126 @@
         {% elif activity_count == 1 %}
             <table class="table table-bordered">
                 <tr class="active">
-                    <th class="col-xs-9" style="font-family: '微软雅黑'">活动</th>
+                    <th class="col-xs-5" style="font-family: '微软雅黑'">活动</th>
+                     <th class="col-xs-5">活动发起人</th>
+                     <th class="col-xs-5">操作</th>
                 </tr>
                 <tr>
-                    <td><a href="/showactivity/{{ activity_list.id }}">{{ activity_list.title }}</a></td>
+                 <td><a href="/showactivity/{{ activity_list.id }}">{{ activity_list.title }}</a></td>
+                    <td>{{ activity_list.sponsor }}</td>
+                    <td> <button style="vertical-align: 50%" data-toggle="modal" data-target="#renew_list"
+                        class="btn btn-default btn-xs">修改
+                         </button>
+                    </td>
                 </tr>
             </table>
+        <div class="modal fade" id="renew_list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form class="form-horizontal" role="form" onsubmit="return checkPassword{{activity_list}}()"
+                  action="/renew/{{ activity_list.id }}" method="POST">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">输入您的管理密码</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <input type="passwordcheck" class="form-control" id="passwordcheck{{activity_list.id}}" name="passwordcheck"
+                                       placeholder="请输入您的管理密码">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    <script type="text/javascript">
+    function checkPassword{{activity_list.id}}() {
+        if (($('#passwordcheck{{ activity_list.id }}').val().length < 6) || ($('#passwordcheck{{ activity_list.id }}').val().length > 16)) {
+            alert("你的密码输入长度有误，请重新输入！");
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+
+
         {% else %}
             <table class="table table-bordered">
                 <tr class="active">
-                    <th class="col-xs-9">活动</th>
-                     <th class="col-xs-9">活动发起人</th>
+                    <th class="col-xs-5">活动</th>
+                     <th class="col-xs-5">活动发起人</th>
+                    <th class="col-xs-5">操作</th>
+
+
                 </tr>
                 {% for a in activity_list %}
                     <tr>
                         <td><a href="/showactivity/{{ a.id }}">{{ a.title }}</a></td>
                          <td>{{ a.sponsor }}</td>
+                          <td> <button style="vertical-align: 50%" data-toggle="modal" data-target="#renew{{ a.id }}"
+                        class="btn btn-default btn-xs">修改
+                         </button>
+                    </td>
                     </tr>
-                {% endfor %}
+ <div class="modal fade" id="renew{{ a.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form class="form-horizontal" role="form" onsubmit="return checkPassword{{a.id}}()"
+                  action="/renew/{{ a.id }}" method="POST">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">输入您的管理密码</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <input type="passwordcheck" class="form-control" id="passwordcheck{{ a.id }}" name="passwordcheck"
+                                       placeholder="请输入您的管理密码">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+                <script type="text/javascript">
+    function checkPassword{{a.id}}() {
+        if (($('#passwordcheck{{ a.id }}').val().length < 6) || ($('#passwordcheck{{ a.id }}').val().length > 16)) {
+            alert("你的密码输入长度有误，请重新输入！");
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+
+    {% endfor %}
             </table>
         {% endif %}
     </div>
 </div>
 
+
+
+
+
+
+
+
 </body>
+
 </html>

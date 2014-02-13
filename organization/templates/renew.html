@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>活动修改</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+    <style type=text/css>
+         .oran-cont {
+            border-radius:9px;
+            border: 15px, cornflowerblue, solid;
+            background-color: #eeccff;
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+<div class="container" style="padding: 8px">
+    <div>
+        <div class="col-xs-9">
+            <h2 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">微活动</h2>
+        </div>
+
+    </div>
+    <br>
+
+    <div style="border-top: 20px;border-bottom: 20px;line-height: 6">
+        &nbsp;
+    </div>
+
+        <div class="row oran-iv">
+            <div class="oran-iv oran-cont">
+                <form class="renew" role="form" action="/renew_activity/{{ activity.id }}" onsubmit="return check()"  method="POST">
+
+
+                <h4>&nbsp;活动标题：<input type="title" class="form-control" id="title" name="title" placeholder= '{{ activity.title }}'></h4>
+                <h4>&nbsp;活动时间：<input type="title" class="form-control" id="time" name="time" placeholder= '{{ activity.act_time }}'></h4>
+                <h4>&nbsp;活动地点：<input type="title" class="form-control" id="address" name="address" placeholder= '{{ activity.address }}'></h4>
+                <h4>&nbsp;活动内容：<input type="title" class="form-control" id="content" name="content" placeholder= '{{ activity.content }}'></h4>
+                 <center>  <input  type="submit" name="renew" value="确认修改活动" style="color:#ff00ff" ></center>
+               </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+
+    function check() {
+         if (($('#title').val().length == 0) || ($('#title').val().length > 255)) {
+            alert("标题输入长度有误，请重新输入！");
+            return false;
+        } else if (($('#time').val().length == 0)) {
+            alert("时间长度输入错误，请检查后重新输入！");
+            return false;
+        } else if (($('#address').val().length == 0)) {
+            alert("地点长度输入错误，请检查后重新输入！");
+            return false;
+        }
+        else if (($('#content').val().length < 4) || ($('#content').val().length > 2048)) {
+            alert("你的活动内容长度错误，请检查后重新输入！");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+</script>
+
+</html>
