@@ -22,6 +22,8 @@ api = restful.Api(app)
 
 # 手机页面
 app.add_url_rule('/showactivity/<int:activity_id>', 'show_activity', show_activity)
+app.add_url_rule('/renew/<int:activity_list_id>','renew',renew,methods=['GET','POST'])
+app.add_url_rule('/renew_activity/<int:activity_id>','renew_activity',renew_activity,methods=['GET','POST'])
 app.add_url_rule('/index', 'index', index)
 app.add_url_rule('/customlist/<int:activity_id>', 'show_custom_list', show_custom_list)
 app.add_url_rule('/showactivitylist', 'show_activity_list', show_activity_list)
