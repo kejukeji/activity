@@ -15,20 +15,21 @@
     <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
     <style type=text/css>
+         input.form_control{text_align:centter;}
          .oran-cont {
             border-radius:5px;
             border: 5px, cornflowerblue, solid;
             background-color: #eeccff;
             padding-bottom: 15px;
             padding-top: 15px;
-            text_align:center       }
+            text_align:center;       }
     </style>
 
 </head>
 
 
 <body>
-<div class="container" style="padding: 48px">
+<div class="container" style="padding: 60px">
     <div>
         <div class="col-xs-9">
             <h2 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">微活动</h2>
@@ -47,7 +48,7 @@
 
 
                 <h4>&nbsp;活动标题：<input type="text" class="form-control" id="title" name="title" placeholder= '{{ activity.title }}'></h4>
-                <h4>&nbsp;活动时间：<input type="time" class="form-control" id="time" name="time" placeholder= '{{ activity.act_time }}'></h4>
+                <h4>&nbsp;活动时间：<input type="text" class="form-control" id="time" name="time" placeholder= '{{ activity.act_time }}'></h4>
                 <h4>&nbsp;活动地点：<input type="text" class="form-control" id="address" name="address" placeholder= '{{ activity.address }}'></h4>
                 <h4>&nbsp;活动内容：<input type="text" class="form-control" id="content" name="content" placeholder= '{{ activity.content }}'></h4>
                  <center>  <input  type="submit" name="renew" value="确认修改活动" style="color:#ff00ff" ></center>
