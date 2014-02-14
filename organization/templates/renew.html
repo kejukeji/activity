@@ -28,9 +28,9 @@
 
 
 <body>
-<div class="container" style="padding: 68px">
+<div class="container" style="padding: 48px">
     <div>
-        <div class="col-xs-5">
+        <div class="col-xs-9">
             <h2 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">微活动</h2>
         </div>
 
@@ -46,10 +46,10 @@
                 <form class="renew" role="form" action="/renew_activity/{{ activity.id }}" onsubmit="return check()"  method="POST">
 
 
-                <h4>&nbsp;活动标题：<input type="title" class="form-control" id="title" name="title" placeholder= '{{ activity.title }}'></h4>
-                <h4>&nbsp;活动时间：<input type="title" class="form-control" id="time" name="time" placeholder= '{{ activity.act_time }}'></h4>
-                <h4>&nbsp;活动地点：<input type="title" class="form-control" id="address" name="address" placeholder= '{{ activity.address }}'></h4>
-                <h4>&nbsp;活动内容：<input type="title" class="form-control" id="content" name="content" placeholder= '{{ activity.content }}'></h4>
+                <h4>&nbsp;活动标题：<input type="text" class="form-control" id="title" name="title" placeholder= '{{ activity.title }}'></h4>
+                <h4>&nbsp;活动时间：<input type="time" class="form-control" id="time" name="time" placeholder= '{{ activity.act_time }}'></h4>
+                <h4>&nbsp;活动地点：<input type="text" class="form-control" id="address" name="address" placeholder= '{{ activity.address }}'></h4>
+                <h4>&nbsp;活动内容：<input type="text" class="form-control" id="content" name="content" placeholder= '{{ activity.content }}'></h4>
                  <center>  <input  type="submit" name="renew" value="确认修改活动" style="color:#ff00ff" ></center>
                </form>
             </div>
