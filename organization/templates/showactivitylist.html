@@ -52,7 +52,7 @@
             </table>
         <div class="modal fade" id="renew_list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form class="form-horizontal" role="form" onsubmit="return checkPassword{{activity_list}}()"
+            <form class="form-horizontal" role="form" onsubmit="return checkPassword_list()"
                   action="/renew/{{ activity_list.id }}" method="POST">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -78,7 +78,7 @@
     </div>
 </div>
     <script type="text/javascript">
-    function checkPassword{{activity_list.id}}() {
+    function checkPassword_list() {
         if (($('#passwordcheck{{ activity_list.id }}').val().length < 6) || ($('#passwordcheck{{ activity_list.id }}').val().length > 16)) {
             alert("你的密码输入长度有误，请重新输入！");
             return false;
