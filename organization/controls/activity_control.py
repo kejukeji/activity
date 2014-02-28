@@ -47,6 +47,33 @@ def activity_commit():
         #return show_activity(Activity.id)
         return redirect(url_for("show_activity", activity_id=Activity.id))
 
+def to_modify_activity(activity_id):
+    activity = get_activity(activity_id)
+    return render_template('modifyactivity.html',activity = activity)
+
+def modify_activity():
+    if request.method == 'POST':
+        Activity = html_modify_activity(request.form)
+        activity = get_activity(Activity.id)
+        activity.title = Activity.title
+        activity.content = Activity.content
+        activity.act_date = Activity.act_date
+        activity.act_time = Activity.act_time
+        activity.address = Activity.address
+        activity.date = str(datetime.now())
+        save_activity(activity)
+        return redirect(url_for("show_activity", activity_id = activity.id))
+
+
+
+def html_modify_activity(form):
+    return Activity(id = form.get('id'),
+                    title = form.get('title'),
+                    content = form.get('content'),
+                    act_date = form.get('act_date'),
+                    act_time = form.get('act_time'),
+                    address = form.get('address')
+                    )
 
 def add_sponsor(sponsor, activity_id):
         Custom = html_custom(request.form, sponsor)
@@ -66,6 +93,7 @@ def html_activity(form):
     return Activity(title = form.get('title'),
                     content = form.get('content'),
                     sponsor = form.get('sponsor'),
+                    act_date = form.get('act_date'),
                     act_time = form.get('act_time'),
                     address = form.get('address'),
                     password = hashlib.new('md5', form.get('password')).hexdigest(),

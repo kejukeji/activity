@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>创建活动</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="../static/js/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet"   href="../static/css/datepicker.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div>
+        <h2 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">微活动</h2>
+    </div>
+    <br>
+    <div style="border-top: 20px;border-bottom: 20px">
+        <hr>
+    </div>
+
+    <div class="jumbotron">
+        <form class="form-horizontal" onsubmit="return checkForm()" role="form" action="/modifyactivity" method="POST">
+            <div class="navbar-text navbar-left">
+                <h3 style="font-family: '微软雅黑'">请输入活动相关信息</h3>
+            </div>
+
+            <div style="display: none">
+                <input value="{{ activity.id }}" name="id">
+            </div>
+            <div>
+                <div class="form-group row">
+                    <div>
+                        <input type="title" class="form-control" id="title" name="title" value="{{ activity.title }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div>
+                        <input type="act_date" class="form-control" id="act_date" name="act_date" value="{{ activity.act_date }}" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div>
+                        <input type="act_time" class="form-control" id="act_time" name="act_time" value="{{ activity.act_time }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div>
+                        <input type="address" class="form-control" id="address" name="address" value="{{ activity.address }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div>
+                        <textarea type="content" class="form-control" id="content" name="content" value="{{ activity.content }}"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center">
+                <button type="submit" class="btn btn-primary">保存</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $("#act_date").datepicker();
+
+    function checkForm() {
+        if (($('#title').val().length == 0) || ($('#title').val().length > 255)) {
+            alert("你的标题输入长度有误，请重新输入！");
+            return false;
+        } else if (($('#act_date').val().length == 0) || ($('#act_date').val().length > 50)) {
+            alert("你的活动时间长度输入错误，请检查后重新输入！");
+            return false;
+        } else if (($('#act_time').val().length == 0) || ($('#act_time').val().length > 50)) {
+            alert("你的活动时间长度输入错误，请检查后重新输入！");
+            return false;
+        } else if (($('#content').val().length < 4) || ($('#content').val().length > 2048)) {
+            alert("你的活动内容长度错误，请检查后重新输入！");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+</script>
+</html>

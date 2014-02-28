@@ -14,6 +14,8 @@
 
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="../static/js/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet"   href="../static/css/datepicker.css">
 
 </head>
 <body>
@@ -43,6 +45,11 @@
                 <div class="form-group row">
                     <div>
                         <input type="title" class="form-control" id="title" name="title" placeholder="请输入活动名称">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div>
+                        <input type="act_date" class="form-control" id="act_date" name="act_date" placeholder="请选择活动日期" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -80,6 +87,7 @@
 </div>
 </body>
 <script type="text/javascript">
+    $("#act_date").datepicker();
 
     function checkForm() {
          if (!$("#inputMobile").val().match(/^1(3|4|5|8)[0-9]{9}$/)) {
