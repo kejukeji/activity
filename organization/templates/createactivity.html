@@ -49,17 +49,17 @@
                 </div>
                 <div class="form-group row">
                     <div>
-                        <input type="act_date" class="form-control" id="act_date" name="act_date" placeholder="请选择活动日期" readonly>
+                        <input type="act_date" class="form-control" id="act_date" name="act_date" placeholder="请选择活动日期，默认为待定" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div>
-                        <input type="act_time" class="form-control" id="act_time" name="act_time" placeholder="请输入活动时间">
+                        <input type="act_time" class="form-control" id="act_time" name="act_time" placeholder="请输入活动时间，默认为待定">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div>
-                        <input type="address" class="form-control" id="address" name="address" placeholder="请输入活动地点">
+                        <input type="address" class="form-control" id="address" name="address" placeholder="请输入活动地点，默认为待定">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -100,13 +100,7 @@
         } else if (($('#sponsor').val().length == 0) || ($('#sponsor').val().length > 50)) {
             alert("你的发布者长度输入错误，请检查后重新输入！");
             return false;
-        } else if (($('#act_time').val().length == 0) || ($('#sponsor').val().length > 50)) {
-            alert("你的发布者长度输入错误，请检查后重新输入！");
-            return false;
-        } else if (($('#address').val().length == 0) || ($('#sponsor').val().length > 200)) {
-            alert("你的发布者长度输入错误，请检查后重新输入！");
-            return false;
-        }
+        } 
         else if (($('#content').val().length < 4) || ($('#content').val().length > 2048)) {
             alert("你的活动内容长度错误，请检查后重新输入！");
             return false;

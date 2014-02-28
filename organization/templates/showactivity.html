@@ -145,9 +145,16 @@
         </div>
         <div class="row oran-iv">
             <div class="oran-iv oran-cont">
-
+               {% if activity.act_date == None or activity.act_date == '' %}
+                <h5><b>活动时间：</b>待定</h5>
+                {% else %}
                 <h5><b>活动时间：</b>{{ activity.act_date }}&nbsp;&nbsp;{{ activity.act_time }}</h5>
+                {% endif %}
+                {% if activity.address == None or activity.address == '' %}
+                <h5><b>活动地点：</b>待定</h5>
+                {% else %}
                 <h5><b>活动地点：</b>{{ activity.address }}</h5>
+                {% endif %}
                 <h6>{{ activity.content }}</h6>
 
             </div>

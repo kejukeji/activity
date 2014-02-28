@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group row">
                     <div>
-                        <textarea type="content" class="form-control" id="content" name="content" value="{{ activity.content }}"></textarea>
+                        <textarea type="content" class="form-control" id="content" name="content" >{{ activity.content }}</textarea>
                     </div>
                 </div>
             </div>
@@ -78,12 +78,6 @@
     function checkForm() {
         if (($('#title').val().length == 0) || ($('#title').val().length > 255)) {
             alert("你的标题输入长度有误，请重新输入！");
-            return false;
-        } else if (($('#act_date').val().length == 0) || ($('#act_date').val().length > 50)) {
-            alert("你的活动时间长度输入错误，请检查后重新输入！");
-            return false;
-        } else if (($('#act_time').val().length == 0) || ($('#act_time').val().length > 50)) {
-            alert("你的活动时间长度输入错误，请检查后重新输入！");
             return false;
         } else if (($('#content').val().length < 4) || ($('#content').val().length > 2048)) {
             alert("你的活动内容长度错误，请检查后重新输入！");
