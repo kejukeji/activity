@@ -21,6 +21,7 @@ class CustomClass(Base):
 
 
 
+
 def query(mobile,password):
     user = CustomClass.query.filter(CustomClass.mobile == mobile,CustomClass.password == password).first()
     if user:

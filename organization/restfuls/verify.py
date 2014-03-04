@@ -125,7 +125,7 @@ def response_event(xml_recv, web_chat):
          }
         return response(web_chat, reply_dict, "news")
     if(Event == 'CLICK') and (EventKey == 'prize'):
-        message = '该功能开发中，敬请期待！！'
+        message = '<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx542b0167f4008a9d&redirect_uri=http%3A%2F%2Fbilibili.kejukeji.com%2Findex&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">授权</a>'
         reply_dict = {
         "ToUserName": FromUserName,
         "FromUserName": ToUserName,

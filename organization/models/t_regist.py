@@ -20,3 +20,4 @@ class RegistClass(Base):
     custom_Id = Column(Integer, ForeignKey(CustomClass.id, ondelete='cascade', onupdate='cascade'), nullable=False)
     activity_Id = Column(Integer, ForeignKey(ActivityClass.id, ondelete='cascade', onupdate='cascade'), nullable=False)
     send_date = Column(DATETIME, nullable=False)
+    comment = Column(String(300), nullable=True)
