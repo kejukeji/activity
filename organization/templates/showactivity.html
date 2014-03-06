@@ -194,10 +194,30 @@
     </button>
     <button data-toggle="modal" data-target="#myModal4" class="btn btn-primary btn-lg btn-block">我要评论</button>
 
+
     <div class="jumbotron" style="padding: 10px;margin: 0px">
         <div class="row oran-iv">
             <div class="col-xs-5 oran-iv" style="height: 30px">
                 评论列表
+            </div>
+            <div class="table table-bordered">
+                <table class="table table-bordered">
+                    {% if comment_count > 1 %}
+                        {% for a in comment %}
+                            <tr>
+                                <td>{{ a.comment }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% elif comment_count == 1 %}
+                        <tr>
+                            <td>{{ comment.comment }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td>目前没有人评论</td>
+                        </tr>
+                    {% endif %}
+                </table>
             </div>
 
         </div>
@@ -308,18 +328,14 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
+        <form class="form-horizontal" role="form" onsubmit="return checkcomment()"
+              action="/comment/{{ activity.id }}" method="POST">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">请输入评论内容</h4>
+                </div>
 
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">请输入评论内容</h4>
-            </div>
-
-            <div class="modal-body">
-
-                    <div class="form-group row">
-                        <input type="comment_name" class="form-control" id="comment_name" name="comment_name"
-                               placeholder="请输入您的姓名">
-                    </div>
+                <div class="modal-body">
                     <div class="form-group row">
                         <div>
                             <textarea type="comment" class="form-control" id="comment" name="comment"
@@ -328,12 +344,13 @@
                     </div>
                 </div>
 
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-default" data-dismiss="modal">评论</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default">评论</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
 
-        </div>
+            </div>
+        </form>
     </div>
 </div>
 
@@ -359,6 +376,14 @@
     function checkPassword() {
         if (($('#passwordcheck').val().length < 6) || ($('#passwordcheck').val().length > 16)) {
             alert("你的密码输入长度有误，请重新输入！");
+            return false;
+        } else {
+            return true;
+        }
+    }
+    function checkcomment() {
+        if (($('#comment').val().length < 1) || ($('#comment').val().length > 300)) {
+            alert("请输入评论，150字以内！");
             return false;
         } else {
             return true;

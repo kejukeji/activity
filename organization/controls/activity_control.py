@@ -5,6 +5,7 @@ from organization.services.activity_service import *
 from datetime import datetime
 from organization.services.regist_service import *
 from organization.services.custom_service import *
+from organization.services.comment_service import *
 from organization.controls.custom_control import *
 from organization.restfuls.verify import *
 import hashlib
@@ -28,12 +29,16 @@ def show_activity(activity_id):
         custom_result.send_date = regist_result.send_date
         regist_list.append(custom_result)
     content_url = url(activity_id)
+    comment = find_comment_by_activityId(activity_id)
+    comment_count = get_comment_count(activity_id)
 
     return render_template('/showactivity.html',
                            activity = activity,
                            regist_list = regist_list,
                            regist_count = regist_count,
-                           content_url = content_url
+                           content_url = content_url,
+                           comment = comment,
+                           comment_count = comment_count
                             )
 
 def activity_commit():
@@ -145,5 +150,15 @@ def renew_activity(activity_id):
     save_activity(activity)
     return redirect(url_for("show_activity", activity_id=activity.id))
 
+def comment_commit(activity_id):
+    comment = html_comment(request.form)
+    commentDb = Comment(activity_Id=activity_id,
+                        comment=comment
+                        )
+    save_comment(commentDb)
+    return redirect(url_for("show_activity", activity_id = activity_id))
 
 
+
+def html_comment(form):
+    return form.get('comment')
