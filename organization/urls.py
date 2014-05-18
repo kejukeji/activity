@@ -10,6 +10,8 @@ from organization.controls.login import *
 from organization.views.login_action import login_to,register_action
 from organization.restfuls.verify import *
 from organization.restfuls.menu import *
+from organization.views.coupon import *
+from organization.restfuls.countTime import *
 
 
 #定义访问control路径
@@ -40,3 +42,13 @@ app.add_url_rule('/register_to','register_action',register_action,methods=['GET'
 app.add_url_rule('/modifyactivity','modify_activity',modify_activity,methods=['GET','POST'])
 app.add_url_rule('/tomodifyactivity/<int:activity_id>', 'to_modify_activity', to_modify_activity)
 app.add_url_rule('/comment/<int:activity_id>', 'comment_commit', comment_commit,methods=['GET','POST'])
+app.add_url_rule('/home','to_home',to_home,methods=('GET','POST'))
+app.add_url_rule('/send','to_send',to_send,methods=('GET','POST'))
+app.add_url_rule('/getCoupon','to_getCoupon',to_getCoupon,methods=('GET','POST'))
+app.add_url_rule('/to_share','to_share',to_share,methods=('GET','POST'))
+app.add_url_rule('/total','get_total_times',get_total_times,methods=('GET','POST'))
+
+# 接口定义
+api = restful.Api(app)
+api.add_resource(ViewTimes,'/viewTimes')
+api.add_resource(ClickTimes,'/clickTimes')
