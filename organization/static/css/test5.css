@@ -1,32 +1,37 @@
 ﻿@charset "utf-8";
 /* CSS Document */
+
+@font-face {
+ font-family: 'FZZDHJW';
+ src: url('FZZDHJW.TTF');
+}
 .test-bg{width:100%; background:url(/static/image/img/page2_r1_c1_s1.png) no-repeat top left; background-size:100% 100%; text-align:right; height:440px; }
-.test-top{ color:#FFDF00; font-size:20px; line-height:45px; text-align:center;  font-family:"迷你简艺黑";}
+.test-top{ color:#FFDF00; font-size:20px; line-height:45px; text-align:center;  font-family:"FZZDHJW";}
 .face{ width:48%; margin-left:1%; margin-top:1%;  padding-top:35px; height:120px; background:url(/static/image/img/page2t_r1_c5_s1.png) no-repeat; background-size:100% 100%; display:none; float:left;}
 .eye{ width:48%; margin-left:1%; margin-top:1%;  padding-top:35px; height:120px; background:url(/static/image/img/page2t_r2_c2_s1.png) no-repeat; background-size:100% 100%; display:none;float:left;}
 .lip{ width:48%; margin-left:1%;  margin-top:1%;   padding-top:35px; height:120px; background:url(/static/image/img/page2t_r5_c1_s1.png) no-repeat; background-size:100% 100%; display:none;float:left;}
 .mj{ width:48%; margin-left:1%;  margin-top:1%;  padding-top:35px; height:120px; background:url(/static/image/img/page2t_r5_c6_s1.png) no-repeat; background-size:100% 100%;float:left;}
-.test-name{ font-size:12px; font-family:"迷你简艺黑"; float:right; line-height:15px; width:50%; text-align:right; color:#E33241; margin-right:6%; }
-.test-namekd{ font-family:"微软雅黑"; padding-right:5px;}
+.test-name{ font-size:12px; font-family:"FZZDHJW"; float:right; line-height:15px; width:50%; text-align:right; color:#E33241; margin-right:6%; }
+.test-namekd{ font-family:"FZZDHJW"; padding-right:5px;}
 .test-img{ padding-left:18%;}
 .test-img img{ float:left;}
 
-.test-money{ font-size:50px; clear:both; color:#C2005B;font-family:"迷你简艺黑"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro1.png) no-repeat left center; background-size:40px 40px; width:58%;}
-.test-money2{ font-size:50px; clear:both; color:#C2005B;font-family:"迷你简艺黑"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro2.png) no-repeat left center; background-size:40px 100%; width:58%;}
-.test-money3{ font-size:50px; clear:both; color:#C2005B;font-family:"迷你简艺黑"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro3.png) no-repeat left center; background-size:40px 40px; width:58%;}
-.test-money4{ font-size:50px; clear:both; color:#C2005B;font-family:"迷你简艺黑"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro4.png) no-repeat left center; background-size:42px 100%; width:58%;}
-.test-money5{ font-size:50px; clear:both; color:#C2005B;font-family:"迷你简艺黑"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro5.png) no-repeat left center; background-size:40px 40px; width:58%;}
-.test-money6{ font-size:50px; clear:both; color:#C2005B;font-family:"迷你简艺黑"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro6.png) no-repeat left center; background-size:40px 40px; width:58%;}
-.test-money7{ font-size:50px; clear:both; color:#C2005B;font-family:"迷你简艺黑"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro7.png) no-repeat left center; background-size:40px 40px; width:58%;}
-.test-money8{ font-size:50px; clear:both; color:#C2005B;font-family:"迷你简艺黑"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro8.png) no-repeat left center; background-size:40px 100%; width:58%;}
+.test-money{ font-size:50px; clear:both; color:#C2005B;font-family:"FZZDHJW"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro1.png) no-repeat left center; background-size:40px 40px; width:58%;}
+.test-money2{ font-size:50px; clear:both; color:#C2005B;font-family:"FZZDHJW"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro2.png) no-repeat left center; background-size:40px 100%; width:58%;}
+.test-money3{ font-size:50px; clear:both; color:#C2005B;font-family:"FZZDHJW"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro3.png) no-repeat left center; background-size:40px 40px; width:58%;}
+.test-money4{ font-size:50px; clear:both; color:#C2005B;font-family:"FZZDHJW"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro4.png) no-repeat left center; background-size:42px 100%; width:58%;}
+.test-money5{ font-size:50px; clear:both; color:#C2005B;font-family:"FZZDHJW"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro5.png) no-repeat left center; background-size:40px 40px; width:58%;}
+.test-money6{ font-size:50px; clear:both; color:#C2005B;font-family:"FZZDHJW"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro6.png) no-repeat left center; background-size:40px 40px; width:58%;}
+.test-money7{ font-size:50px; clear:both; color:#C2005B;font-family:"FZZDHJW"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro7.png) no-repeat left center; background-size:40px 40px; width:58%;}
+.test-money8{ font-size:50px; clear:both; color:#C2005B;font-family:"FZZDHJW"; padding-right:12%;line-height:45px; margin:auto; text-align:right; background:url(/static/image/img/pro8.png) no-repeat left center; background-size:40px 100%; width:58%;}
 
-.test-money-p{ font-size:13px; color:#9E1315; font-family:"微软雅黑"; width:90%; margin:auto; }
-.test-money-p a{ font-size:5px; color:#9E1315; font-family:"微软雅黑"; letter-spacing:-1px; }
+.test-money-p{ font-size:13px; color:#9E1315; font-family:"FZZDHJW"; width:90%; margin:auto; }
+.test-money-p a{ font-size:5px; color:#9E1315; font-family:"FZZDHJW"; letter-spacing:-1px; }
 
-.test-bg-foot{ font-size:18px; color:#FFF;font-family:"迷你简艺黑"; line-height:40px;width:95%; margin:auto; text-align:center; }
-.test-bg-foot2{ font-size:14px; letter-spacing:-1px; color:#FFF;font-family:"迷你简艺黑"; line-height:20px; margin:auto; }
+.test-bg-foot{ font-size:18px; color:#FFF;font-family:"FZZDHJW"; line-height:40px;width:95%; margin:auto; text-align:center; }
+.test-bg-foot2{ font-size:14px; letter-spacing:-1px; color:#FFF;font-family:"FZZDHJW"; line-height:20px; margin:auto; }
 .test-bottom{ background:#FFDF00; text-align:center;}
-.test-bottom p{ font-size:14px; color:#1D2087; font-family:"迷你简艺黑";  width:96%; letter-spacing:-1px; line-height:20px; }
+.test-bottom p{ font-size:14px; color:#1D2087; font-family:"FZZDHJW";  width:96%; letter-spacing:-1px; line-height:20px; }
 .test-bottom b{ background:url(/static/image/img/page2t_r7_c7_s1.png) no-repeat center right; font-size:16px; background-size:22px 22px; line-height:35px; display:block; width:135px; margin:auto;color:#1D2087; }
 
 

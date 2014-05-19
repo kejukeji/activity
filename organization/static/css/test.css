@@ -1,5 +1,10 @@
 ﻿@charset "utf-8";
 /* CSS Document */
+
+@font-face {
+ font-family: 'FZZDHJW';
+ src: url('FZZDHJW.TTF');
+}
 .test-top{ width:100%; height:30px;  background:url(/static/image/img/page_r1_c1_s1.png) no-repeat; background-size:100% 100%;}
 .test-bottom{ width:100%; height:30px; background:url(/static/image/img/page_r5_c1_s1.png) no-repeat; background-size:100% 100%;}
 .test-con{ width:100%; background:url(/static/image/img/page_r3_c1_s1.png) repeat-y; background-size:100%; }
@@ -9,14 +14,14 @@
 .test-con4{width:45%; margin-left:2%; float:left;}
 .test-con5{width:45%; float:right;margin-right:2%;}
 
-.test-conp{ text-align:center; font:16px; color:#fff; line-height:30px; font-family:"微软雅黑"}
-.test-button{ background:url(/static/image/img/paget_r3_c2.png) no-repeat; height:40px; text-align:center; font-size:15px; font-family:"迷你简艺黑"; line-height:30px; background-size:100% 100%; width:60%; color:#FFF818;  margin-left:20%; display:block; border:none;}
+.test-conp{ text-align:center; font:16px; color:#fff; line-height:30px; font-family:"FZZDHJW"}
+.test-button{ background:url(/static/image/img/paget_r3_c2.png) no-repeat; height:40px; text-align:center; font-size:15px; font-family:"FZZDHJW"; line-height:30px; background-size:100% 100%; width:60%; color:#FFF818;  margin-left:20%; display:block; border:none;}
 
-.test-con3-b{ font-size:33px; line-height:50px;color:#FFF818; font-weight:600; font-family:"迷你简艺黑";}
-.test-con3 a{ font-size:22px; color:#D8D8D9; font-family:"迷你简艺黑";}
+.test-con3-b{ font-size:33px; line-height:50px;color:#FFF818; font-weight:600; font-family:"FZZDHJW";}
+.test-con3 a{ font-size:22px; color:#D8D8D9; font-family:"FZZDHJW";}
 /*点击过后的样式*/
-.test-conp2{ text-align:center; font:16px;line-height:30px; color:#DE649C;font-family:"微软雅黑"}
-.test-button2{ background:url(/static/image/img/paget_r3_c22.png) no-repeat; height:40px; text-align:center; font-size:15px; font-family:"迷你简艺黑"; line-height:30px; background-size:100% 100%; width:60%; color:#DD5F4F;  margin-left:20%; display:block; border:none;}
+.test-conp2{ text-align:center; font:16px;line-height:30px; color:#DE649C;font-family:"FZZDHJW"}
+.test-button2{ background:url(/static/image/img/paget_r3_c22.png) no-repeat; height:40px; text-align:center; font-size:15px; font-family:"FZZDHJW"; line-height:30px; background-size:100% 100%; width:60%; color:#DD5F4F;  margin-left:20%; display:block; border:none;}
 .test-con1on{ display:none;width:45%; margin-left:2%; float:left;}
 .test-con2on{ display:none; width:45%; float:right;margin-right:2%;}
 .test-con4on{ display:none;width:45%; margin-left:2%; float:left;}
