@@ -1,34 +1,49 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
-<link rel="stylesheet" type="text/css" href="/static/css/home.css"/>
-<title>妙巴黎京城格格</title>
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script>
-    $(document).ready(function (){
-          $.ajax({
-            type: 'get',
-            url: '/viewTimes',
-            success:function(){}
-          });
-    });
-</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/home.css"/>
+    <title>妙巴黎京城格格</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <script>
+        window.onload=function () {
+            $.ajax({
+                type: 'get',
+                url: '/viewTimes',
+                success: function () {
+                }
+            });
+
+            $("#loading").css({display: "none"});
+            $("#real").css({display: "block"});
+
+        };
+    </script>
 </head>
 
 <body>
-<div class="home-top">
-<div class="home-topimg">
-<img src="/static/image/img/homet_r1_c1_s1.png" />
-</div>
-<div class="home-topt1">谁在北京没个格格朋友！</div>
-<div class="home-topt2">请安了您嘞！</div>
-</div>
-<div class="home-bottom">
-<a href="/send"><button id="she_button" type="button" >立即给她朝贡</button></a>
-</div>
+<div id="loading" style="height: 100%;width: 100%;position: absolute;vertical-align: middle;text-align: center">
+    <span style="vertical-align: middle;display: inline-block;height: 100%"></span>
+    <img src="/static/image/img/5-121204193Q9-51.gif">
 
+</div>
+<div id="real" style="display: none">
+    <div class="home-top">
+        <div class="home-topimg">
+            <img src="/static/image/img/homet_r1_c1_s1.png"/>
+        </div>
+        <div class="home-topt1">谁在北京没个格格朋友！</div>
+        <div class="home-topt2">请安了您嘞！</div>
+    </div>
+    <div class="home-bottom">
+        <a href="/send">
+            <button id="she_button" type="button">立即给她朝贡</button>
+        </a>
+    </div>
+</div>
 </body>
 </html>
