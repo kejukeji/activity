@@ -1,17 +1,13 @@
 ﻿@charset "utf-8";
 /* CSS Document */
-@font-face {
- font-family: 'FZZDHJW';
- src: url('FZZDHJW.TTF');
-}
 
 .home-top{ width:100%; padding-bottom:30px;  background:url(/static/image/img/home_r1_c1_s1.png) no-repeat top left; background-size:100% 100%; display:block;}
 .home-topimg{ width:90%; height:auto; margin:auto; padding-top:7%;}
 .home-topimg img{ width:100%;}
-.home-topt1{ width:96%; margin:auto; padding-top:3%; text-align:center; color:#C6114F; font-size:22px; font-family:"FZZDHJW"; line-height:40px;}
-.home-topt2{ width:96%; margin:auto; text-align:center; color:#C6114F; font-size:25px; font-family:"FZZDHJW"; line-height:30px; padding-bottom:20px;}
+.home-topt1{ width:96%; margin:auto; padding-top:3%; text-align:center; color:#C6114F; font-size:22px; font-family:"迷你简艺黑"; line-height:40px;}
+.home-topt2{ width:96%; margin:auto; text-align:center; color:#C6114F; font-size:25px; font-family:"迷你简艺黑"; line-height:30px; padding-bottom:20px;}
 .home-bottom{ width:100%; height:auto; display:block; margin:auto; background:url(/static/image/img/home_r2_c1_s1.png) no-repeat top left; background-size:100% 100%; padding-top:3%; padding-bottom:3%;}
-.home-bottom button{ background:url(/static/image/img/homet_r3_c2_s1.png) no-repeat; font-size:28px;background-size:100% 100%; margin-left:10%;width:80%; line-height:50px;  color:#FFF818; display:block; font-family:"FZZDHJW"; text-shadow:1px 2px 2px #333;}
+.home-bottom button{ background:url(/static/image/img/homet_r3_c2_s1.png) no-repeat; font-size:28px;background-size:100% 100%; margin-left:10%;width:80%; line-height:50px;  color:#FFF818; display:block; font-family:"迷你简艺黑"; text-shadow:1px 2px 2px #333;}
 
 
 
