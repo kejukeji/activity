@@ -1,109 +1,126 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
- <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="/static/css/test.css"/>
-<link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
-<title>妙巴黎京城格格</title>
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script type="text/javascript"> 
-$(document).ready(function(){
-	var i = 0;
-	function div_click(idx){
-		$("#start"+idx).click(function (){
-			$("#start"+idx).css({display:"none"});
-			$("#startChange"+idx).css({display:"block"});
-			i = i+1;
-			$("#num1").empty().html(i);
-			$("#num2").empty().html(i*25);
-            if(i==4){
-                window.location.href="/getCoupon";
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/test.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <title>妙巴黎京城格格</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        window.onload=function () {
+            $("#loading").css({display: "none"});
+            $("#real").css({display: "block"});
+
+
+
+            var i = 0;
+            function div_click(idx) {
+                $("#start" + idx).click(function () {
+                    $("#start" + idx).css({display: "none"});
+                    $("#startChange" + idx).css({display: "block"});
+                    i = i + 1;
+                    $("#num1").empty().html(i);
+                    $("#num2").empty().html(i * 25);
+                    if (i == 4) {
+                        window.location.href = "/getCoupon";
+                    }
+                });
             }
-		});
-	}
-	div_click(1);
-	div_click(2);
-	div_click(3);
-	div_click(4);
-	
-});
-</script>
-   
+            div_click(1);
+            div_click(2);
+            div_click(3);
+            div_click(4);
 
-   
-<body style="height:100%;width:100%;margin:0" >
-<div class="test-top"></div>
-<div class="test-con">
-<!--面妆-->
-<div class="face">
-<div id="start1" class="test-con1">
-<p class="test-conp">面妆礼品</p>
-<img src="/static/image/img/paget_r1_c1.png" width="100%">
-<button type="button" class="test-button">点击朝贡</button>
-</div>
-<div id="startChange1" class="test-con1on" >
-<p class="test-conp2">面妆礼品</p>
-<img src="/static/image/img/paget_r1_c12.png" width="100%">
-<button type="button" class="test-button2">点击朝贡</button>
-</div>
-</div>
-<!--面妆-->
-<!--甲状-->
-<div class="nail">
-<div id="start2" class="test-con2" >
-<p class="test-conp">甲妆礼品</p>
-<img src="/static/image/img/paget_r1_c5.png" width="100%">
-<button type="button" class="test-button">点击朝贡</button>
-</div>
-<div id="startChange2" class="test-con2on"  >
-<p class="test-conp2">甲妆礼品</p>
-<img src="/static/image/img/paget_r1_c52.png" width="100%">
-<button type="button" class="test-button2">点击朝贡</button>
-</div>
-</div>
-<!--甲妆-->
+        };
+    </script>
 
-<div class="clear"></div>
-<!--中间统计部分-->
-<div class="test-con3">
- <b class="test-con3-b">为格格选择贡品！</b><br />
-<a> 已朝贡<h id="num1" style=" color:#FC0; font-size:30px;" >0</h>&nbsp;&nbsp;件</a>&nbsp;&nbsp;
- <a>完成<h id="num2"  style=" color:#FC0; font-size:30px;" >&nbsp;0</h>&nbsp;&nbsp;&nbsp;%</a>
-</div>
-<!--中间统计部分-->
-<!--眼妆-->
-<div class="eye">
-<div id="start3" class="test-con4">
-<p class="test-conp">眼妆礼品</p>
-<img src="/static/image/img/paget_r5_c1.png" width="100%">
-<button type="button" class="test-button">点击朝贡</button>
-</div>
-<div id="startChange3" class="test-con4on"  >
-<p class="test-conp2">眼妆礼品</p>
-<img src="/static/image/img/paget_r5_c12.png" width="100%">
-<button type="button" class="test-button2">点击朝贡</button>
-</div>
-</div>
-<!--眼妆-->
-<!--唇妆-->
-<div class="mouth">
-<div id="start4" class="test-con5">
-<p class="test-conp">唇妆礼品</p>
-<img src="/static/image/img/paget_r5_c5.png" width="100%">
-<button type="button" class="test-button">点击朝贡</button>
-</div>
-<div id="startChange4" class="test-con5on"  >
-<p class="test-conp2">唇妆礼品</p>
-<img src="/static/image/img/paget_r5_c52.png" width="100%">
-<button type="button" class="test-button2">点击朝贡</button>
-</div>
-</div>
-<!--唇妆-->
 
-<!--test-con结束-->
+<body style="height:100%;width:100%;margin:0">
+<div id="loading" style="height: 100%;width: 100%;position: absolute;vertical-align: middle;text-align: center">
+    <span style="vertical-align: middle;display: inline-block;height: 100%"></span>
+    <img src="/static/image/img/5-121204193Q9-51.gif">
 
-<div class="clear"></div>
-<div class="test-bottom"></div>
+</div>
+<div id="real" style="display: none">
+    <div class="test-top"></div>
+    <div class="test-con">
+        <!--面妆-->
+        <div class="face">
+            <div id="start1" class="test-con1">
+                <p class="test-conp">面妆礼品</p>
+                <img src="/static/image/img/paget_r1_c1.png" width="100%">
+                <button type="button" class="test-button">点击朝贡</button>
+            </div>
+            <div id="startChange1" class="test-con1on">
+                <p class="test-conp2">面妆礼品</p>
+                <img src="/static/image/img/paget_r1_c12.png" width="100%">
+                <button type="button" class="test-button2">点击朝贡</button>
+            </div>
+        </div>
+        <!--面妆-->
+        <!--甲状-->
+        <div class="nail">
+            <div id="start2" class="test-con2">
+                <p class="test-conp">甲妆礼品</p>
+                <img src="/static/image/img/paget_r1_c5.png" width="100%">
+                <button type="button" class="test-button">点击朝贡</button>
+            </div>
+            <div id="startChange2" class="test-con2on">
+                <p class="test-conp2">甲妆礼品</p>
+                <img src="/static/image/img/paget_r1_c52.png" width="100%">
+                <button type="button" class="test-button2">点击朝贡</button>
+            </div>
+        </div>
+        <!--甲妆-->
+
+        <div class="clear"></div>
+        <!--中间统计部分-->
+        <div class="test-con3">
+            <b class="test-con3-b">为格格选择贡品！</b><br/>
+            <a> 已朝贡
+                <h id="num1" style=" color:#FC0; font-size:30px;">0</h>
+                &nbsp;&nbsp;件</a>&nbsp;&nbsp;
+            <a>完成
+                <h id="num2" style=" color:#FC0; font-size:30px;">&nbsp;0</h>
+                &nbsp;&nbsp;&nbsp;%</a>
+        </div>
+        <!--中间统计部分-->
+        <!--眼妆-->
+        <div class="eye">
+            <div id="start3" class="test-con4">
+                <p class="test-conp">眼妆礼品</p>
+                <img src="/static/image/img/paget_r5_c1.png" width="100%">
+                <button type="button" class="test-button">点击朝贡</button>
+            </div>
+            <div id="startChange3" class="test-con4on">
+                <p class="test-conp2">眼妆礼品</p>
+                <img src="/static/image/img/paget_r5_c12.png" width="100%">
+                <button type="button" class="test-button2">点击朝贡</button>
+            </div>
+        </div>
+        <!--眼妆-->
+        <!--唇妆-->
+        <div class="mouth">
+            <div id="start4" class="test-con5">
+                <p class="test-conp">唇妆礼品</p>
+                <img src="/static/image/img/paget_r5_c5.png" width="100%">
+                <button type="button" class="test-button">点击朝贡</button>
+            </div>
+            <div id="startChange4" class="test-con5on">
+                <p class="test-conp2">唇妆礼品</p>
+                <img src="/static/image/img/paget_r5_c52.png" width="100%">
+                <button type="button" class="test-button2">点击朝贡</button>
+            </div>
+        </div>
+        <!--唇妆-->
+
+        <!--test-con结束-->
+
+        <div class="clear"></div>
+        <div class="test-bottom"></div>
+    </div>
+</div>
 </body>
 </html>

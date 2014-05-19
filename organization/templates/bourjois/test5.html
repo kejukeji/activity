@@ -1,148 +1,171 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>妙巴黎京城格格</title>
-<link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
-<link rel="stylesheet" type="text/css" href="/static/css/test5.css"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>妙巴黎京城格格</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/test5.css"/>
 
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script type="text/javascript"> 
-$(document).ready(function(){
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        window.onload=function () {
 
-     $.ajax({
-            type: 'get',
-            url: '/clickTimes',
-            success:function(){}
-     });
+                        $("#loading").css({display: "none"});
+            $("#real").css({display: "block"});
 
-	
-	var idx1 = parseInt(3*Math.random())+1;
-	var idx2 = parseInt(2*Math.random())+1;
-	var idx3 = parseInt(2*Math.random())+1;
-	$("#face"+idx1).css({display:"block"});
-	$("#eye"+idx2).css({display:"block"});
-	$("#lip"+idx3).css({display:"block"});
-});
-</script>
-   
-<style type="text/css"> 
+            $.ajax({
+                type: 'get',
+                url: '/clickTimes',
+                success: function () {
+                }
+            });
 
-</style>
-   
+
+            var idx1 = parseInt(3 * Math.random()) + 1;
+            var idx2 = parseInt(2 * Math.random()) + 1;
+            var idx3 = parseInt(2 * Math.random()) + 1;
+            $("#face" + idx1).css({display: "block"});
+            $("#eye" + idx2).css({display: "block"});
+            $("#lip" + idx3).css({display: "block"});
+        };
+    </script>
+
+    <style type="text/css">
+
+    </style>
+
 <body>
-<div class="test-bg">
-<div class="test-top">
 
-京城格格表示-这丫头诚意足
-</div>
-<div id="face1" class="face">
-<ul>
-<li class="test-name">杜鹃精华透薄底霜<br /><a class="test-namekd">可抵</a></li>
-<li>
-<p class="test-money">28</p>
-<p class="test-money-p">元<a>（每人限用一张）</a></p>
-
-</li>
-</ul>
+<div id="loading" style="height: 100%;width: 100%;position: absolute;vertical-align: middle;text-align: center">
+    <span style="vertical-align: middle;display: inline-block;height: 100%"></span>
+    <img src="/static/image/img/5-121204193Q9-51.gif">
 
 </div>
-<div id="face2" class="face">
-<ul>
-<li class="test-name">果然美肌啫喱粉底液<br /><a class="test-namekd">可抵</a></li>
-<li>
-<p class="test-money2">44</p>
-<p class="test-money-p">元<a>（每人限用一张）</a></p>
+<div id="real" style="display: none">
+    <div class="test-bg">
+        <div class="test-top">
 
-</li>
-</ul>
+            京城格格表示-这丫头诚意足
+        </div>
+        <div id="face1" class="face">
+            <ul>
+                <li class="test-name">杜鹃精华透薄底霜<br/><a class="test-namekd">可抵</a></li>
+                <li>
+                    <p class="test-money">28</p>
 
+                    <p class="test-money-p">元<a>（每人限用一张）</a></p>
+
+                </li>
+            </ul>
+
+        </div>
+        <div id="face2" class="face">
+            <ul>
+                <li class="test-name">果然美肌啫喱粉底液<br/><a class="test-namekd">可抵</a></li>
+                <li>
+                    <p class="test-money2">44</p>
+
+                    <p class="test-money-p">元<a>（每人限用一张）</a></p>
+
+                </li>
+            </ul>
+
+        </div>
+        <div id="face3" class="face">
+            <ul>
+                <li class="test-name">小圆盒烘焙腮红<br/><a class="test-namekd">可抵</a></li>
+                <li>
+                    <p class="test-money3">24</p>
+
+                    <p class="test-money-p">元<a>（每人限用一张）</a></p>
+
+                </li>
+            </ul>
+
+        </div>
+
+        <div id="eye1" class="eye">
+            <ul>
+                <li class="test-name">浓密睫毛膏<br/><a class="test-namekd">可抵</a></li>
+                <li>
+                    <p class="test-money4">26</p>
+
+                    <p class="test-money-p">元<a>（每人限用一张）</a></p>
+
+                </li>
+            </ul>
+
+        </div>
+        <div id="eye2" class="eye">
+            <ul>
+                <li class="test-name">图盒眼影<br/><a class="test-namekd">可抵</a></li>
+                <li>
+                    <p class="test-money5">20</p>
+
+                    <p class="test-money-p">元<a>（每人限用一张）</a></p>
+
+                </li>
+            </ul>
+
+        </div>
+
+        <div id="lip1" class="lip">
+            <ul>
+                <li class="test-name">新光效立体唇彩<br/><a class="test-namekd">可抵</a></li>
+                <li>
+                    <p class="test-money6">24</p>
+
+                    <p class="test-money-p">元<a>（每人限用一张）</a></p>
+
+                </li>
+            </ul>
+
+        </div>
+        <div id="lip2" class="lip">
+            <ul>
+                <li class="test-name">甜蜜之吻唇膏<br/><a class="test-namekd">可抵</a></li>
+                <li>
+                    <p class="test-money7">26</p>
+
+                    <p class="test-money-p">元<a>（每人限用一张）</a></p>
+
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="mj">
+            <ul>
+                <li class="test-name">七天漆彩指甲油<br/><a class="test-namekd">可抵</a></li>
+                <li>
+                    <p class="test-money8">16</p>
+
+                    <p class="test-money-p">元<a>（每人限用一张）</a></p>
+
+                </li>
+            </ul>
+
+        </div>
+        <div class="clear"></div>
+
+        <div class="test-bg-foot">
+            <p> 请截图，发送给京城的格格朋友！</p>
+
+            <p class="test-bg-foot2">您和格格都可在妙巴黎北京大促中享用以上贡品</p>
+        </div>
+
+    </div>
+
+    <img src="/static/image/img/page2_r2_c1_s1.png" width="100%"/>
+
+    <div class="test-bottom">
+        <p>享用地点：北京朝阳区东三环中路65号富力广场</p>
+
+        <p>享用时间：2014年5月26日-6月1日</p>
+        <a href="/to_share"><b>再犒赏自己</b></a>
+    </div>
 </div>
-<div id="face3" class="face">
-<ul>
-<li class="test-name">小圆盒烘焙腮红<br /><a class="test-namekd">可抵</a></li>
-<li>
-<p class="test-money3">24</p>
-<p class="test-money-p">元<a>（每人限用一张）</a></p>
-
-</li>
-</ul>
-
-</div>
-
-<div id="eye1" class="eye" >
-<ul>
-<li class="test-name">浓密睫毛膏<br /><a class="test-namekd">可抵</a></li>
-<li>
-<p class="test-money4">26</p>
-<p class="test-money-p">元<a>（每人限用一张）</a></p>
-
-</li>
-</ul>
-
-</div>
-<div id="eye2"  class="eye" >
-<ul>
-<li class="test-name">图盒眼影<br /><a class="test-namekd">可抵</a></li>
-<li>
-<p class="test-money5">20</p>
-<p class="test-money-p">元<a>（每人限用一张）</a></p>
-
-</li>
-</ul>
-
-</div>
-
-<div id="lip1" class="lip" >
-<ul>
-<li class="test-name">新光效立体唇彩<br /><a class="test-namekd">可抵</a></li>
-<li>
-<p class="test-money6">24</p>
-<p class="test-money-p">元<a>（每人限用一张）</a></p>
-
-</li>
-</ul>
-
-</div>
-<div id="lip2" class="lip">
-<ul>
-<li class="test-name">甜蜜之吻唇膏<br /><a class="test-namekd">可抵</a></li>
-<li>
-<p class="test-money7">26</p>
-<p class="test-money-p">元<a>（每人限用一张）</a></p>
-
-</li>
-</ul>
-
-</div>
-
-<div class="mj" >
-<ul>
-<li class="test-name">七天漆彩指甲油<br /><a class="test-namekd">可抵</a></li>
-<li>
-<p class="test-money8">16</p>
-<p class="test-money-p">元<a>（每人限用一张）</a></p>
-
-</li>
-</ul>
-
- </div>
- <div class="clear"></div>
- 
- <div class="test-bg-foot">
- <p> 请截图，发送给京城的格格朋友！</p>
- <p class="test-bg-foot2">您和格格都可在妙巴黎北京大促中享用以上贡品</p>
- </div>
-
-</div>
-
-<img src="/static/image/img/page2_r2_c1_s1.png"  width="100%"/>
-<div class="test-bottom">
-<p>享用地点：北京朝阳区东三环中路65号富力广场</p>
-<p>享用时间：2014年5月26日-6月1日</p>
-<a href="/to_share"><b>再犒赏自己</b></a>
-</div>
-
 </body>
 </html>
