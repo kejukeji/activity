@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/home.css"/>
     <title>妙巴黎京城格格</title>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript">
+    <script type="text/javascript">
         document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
             WeixinJSBridge.call('hideToolbar');
         });
@@ -81,7 +81,7 @@
         })();
     </script>
     <script>
-        window.onload=function () {
+        window.onload = function () {
             $.ajax({
                 type: 'get',
                 url: '/viewTimes',
@@ -103,17 +103,17 @@
 
 </div>
 <div id="real" style="display: none">
+
+
     <div class="home-top">
         <div class="home-topimg">
             <img src="/static/image/img/homet_r1_c1_s1.png"/>
         </div>
-        <div class="home-topt1">谁在北京没个格格朋友！</div>
-        <div class="home-topt2">请安了您嘞！</div>
+        <div class="home-topt"><img src="/static/image/img/index_r1_c1_s1.png" width="100%"></div>
     </div>
     <div class="home-bottom">
-        <a href="/send">
-            <button id="she_button" type="button">立即给她朝贡</button>
-        </a>
+<span>
+<a href="/send"><img src="/static/image/img/index_r3_c2_s1.png" width="100%"/></a></span>
     </div>
 </div>
 </body>

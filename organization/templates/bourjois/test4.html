@@ -8,14 +8,86 @@
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
     <title>妙巴黎京城格格</title>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript">
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            WeixinJSBridge.call('hideToolbar');
+        });
+        var dataForWeixin = {
+            appId: "wx1426988e8c227dee",
+            MsgImg: "http://bilibili.kejukeji.com/static/image/img/4fe8334fd7e17.jpg",
+            TLImg: "http://bilibili.kejukeji.com/static/image/img/4fe8334fd7e17.jpg",
+            url: "bilibili.kejukeji.com/home",
+            title: "妙巴黎京城格格",
+            desc: "微信优惠活动开始了！",
+            fakeid: "",
+            callback: function () {
+            }
+        };
+        (function () {
+            var onBridgeReady = function () {
+                WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+                    WeixinJSBridge.invoke('sendAppMessage', {
+                        "appid": dataForWeixin.appId,
+                        "img_url": dataForWeixin.MsgImg,
+                        "img_width": "120",
+                        "img_height": "120",
+                        "link": dataForWeixin.url,
+                        "desc": dataForWeixin.desc,
+                        "title": dataForWeixin.title
+                    }, function (res) {
+                        (dataForWeixin.callback)();
+                    });
+                });
+                WeixinJSBridge.on('menu:share:timeline', function (argv) {
+                    (dataForWeixin.callback)();
+                    WeixinJSBridge.invoke('shareTimeline', {
+                        "img_url": dataForWeixin.TLImg,
+                        "img_width": "120",
+                        "img_height": "120",
+                        "link": dataForWeixin.url,
+                        "desc": dataForWeixin.desc,
+                        "title": dataForWeixin.title
+                    }, function (res) {
+                    });
+                });
+
+                WeixinJSBridge.on('menu:share:weibo', function (argv) {
+                    WeixinJSBridge.invoke('shareWeibo', {
+                        "content": dataForWeixin.title,
+                        "url": dataForWeixin.url
+                    }, function (res) {
+                        (dataForWeixin.callback)();
+                    });
+                });
+                WeixinJSBridge.on('menu:share:facebook', function (argv) {
+                    (dataForWeixin.callback)();
+                    WeixinJSBridge.invoke('shareFB', {
+                        "img_url": dataForWeixin.TLImg,
+                        "img_width": "120",
+                        "img_height": "120",
+                        "link": dataForWeixin.url,
+                        "desc": dataForWeixin.desc,
+                        "title": dataForWeixin.title
+                    }, function (res) {
+                    });
+                });
+            };
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        })();
+    </script>
     <script type="text/javascript">
-        window.onload=function () {
+        window.onload = function () {
             $("#loading").css({display: "none"});
             $("#real").css({display: "block"});
 
 
-
             var i = 0;
+
             function div_click(idx) {
                 $("#start" + idx).click(function () {
                     $("#start" + idx).css({display: "none"});
@@ -28,6 +100,7 @@
                     }
                 });
             }
+
             div_click(1);
             div_click(2);
             div_click(3);
@@ -37,90 +110,69 @@
     </script>
 
 
-<body style="height:100%;width:100%;margin:0">
+
+
+<body style="height:100%;width:100%; background:url(/static/image/img/pagebg.png) no-repeat; background-size:100% 100%; ">
 <div id="loading" style="height: 100%;width: 100%;position: absolute;vertical-align: middle;text-align: center">
     <span style="vertical-align: middle;display: inline-block;height: 100%"></span>
     <img src="/static/image/img/5-121204193Q9-51.gif">
 
 </div>
 <div id="real" style="display: none">
-    <div class="test-top"></div>
-    <div class="test-con">
-        <!--面妆-->
-        <div class="face">
-            <div id="start1" class="test-con1">
-                <p class="test-conp">面妆礼品</p>
-                <img src="/static/image/img/paget_r1_c1.png" width="100%">
-                <button type="button" class="test-button">点击朝贡</button>
-            </div>
-            <div id="startChange1" class="test-con1on">
-                <p class="test-conp2">面妆礼品</p>
-                <img src="/static/image/img/paget_r1_c12.png" width="100%">
-                <button type="button" class="test-button2">点击朝贡</button>
-            </div>
+<div class="test-con">
+    <!--面妆-->
+    <div class="face">
+        <div id="start1" class="test-con1">
+            <img src="/static/image/img/pagey_r1_c1_s1.png" width="100%"/>
         </div>
-        <!--面妆-->
-        <!--甲状-->
-        <div class="nail">
-            <div id="start2" class="test-con2">
-                <p class="test-conp">甲妆礼品</p>
-                <img src="/static/image/img/paget_r1_c5.png" width="100%">
-                <button type="button" class="test-button">点击朝贡</button>
-            </div>
-            <div id="startChange2" class="test-con2on">
-                <p class="test-conp2">甲妆礼品</p>
-                <img src="/static/image/img/paget_r1_c52.png" width="100%">
-                <button type="button" class="test-button2">点击朝贡</button>
-            </div>
+        <div id="startChange1" class="test-con1on">
+            <img src="/static/image/img/pagen_r1_c1_s1.png" width="100%"/>
         </div>
-        <!--甲妆-->
-
-        <div class="clear"></div>
-        <!--中间统计部分-->
-        <div class="test-con3">
-            <b class="test-con3-b">为格格选择贡品！</b><br/>
-            <a> 已朝贡
-                <h id="num1" style=" color:#FC0; font-size:30px;">0</h>
-                &nbsp;&nbsp;件</a>&nbsp;&nbsp;
-            <a>完成
-                <h id="num2" style=" color:#FC0; font-size:30px;">&nbsp;0</h>
-                &nbsp;&nbsp;&nbsp;%</a>
-        </div>
-        <!--中间统计部分-->
-        <!--眼妆-->
-        <div class="eye">
-            <div id="start3" class="test-con4">
-                <p class="test-conp">眼妆礼品</p>
-                <img src="/static/image/img/paget_r5_c1.png" width="100%">
-                <button type="button" class="test-button">点击朝贡</button>
-            </div>
-            <div id="startChange3" class="test-con4on">
-                <p class="test-conp2">眼妆礼品</p>
-                <img src="/static/image/img/paget_r5_c12.png" width="100%">
-                <button type="button" class="test-button2">点击朝贡</button>
-            </div>
-        </div>
-        <!--眼妆-->
-        <!--唇妆-->
-        <div class="mouth">
-            <div id="start4" class="test-con5">
-                <p class="test-conp">唇妆礼品</p>
-                <img src="/static/image/img/paget_r5_c5.png" width="100%">
-                <button type="button" class="test-button">点击朝贡</button>
-            </div>
-            <div id="startChange4" class="test-con5on">
-                <p class="test-conp2">唇妆礼品</p>
-                <img src="/static/image/img/paget_r5_c52.png" width="100%">
-                <button type="button" class="test-button2">点击朝贡</button>
-            </div>
-        </div>
-        <!--唇妆-->
-
-        <!--test-con结束-->
-
-        <div class="clear"></div>
-        <div class="test-bottom"></div>
     </div>
+    <!--面妆-->
+    <!--甲状-->
+    <div class="nail">
+        <div id="start2" class="test-con2">
+            <img src="/static/image/img/pagey_r1_c7_s1.png" width="100%"/>
+        </div>
+        <div id="startChange2" class="test-con2on">
+            <img src="/static/image/img/pagen_r1_c3_s1.png" width="100%"/>
+        </div>
+    </div>
+    <!--甲妆-->
+    <!--中间统计部分-->
+    <div class="test-con3">
+        <center><img src="/static/image/img/pagey_r3_c3_s1.png" width="90%"/></center>
+        <a> 已朝贡
+            <h id="num1" style=" color:#FC0; font-size:30px;">0</h>
+            &nbsp;&nbsp;件</a>&nbsp;&nbsp;
+        <a>完成
+            <h id="num2" style=" color:#FC0; font-size:30px;">&nbsp;0</h>
+            &nbsp;%</a>
+    </div>
+    <!--中间统计部分-->
+    <!--眼妆-->
+    <div class="eye">
+        <div id="start3" class="test-con4">
+            <img src="/static/image/img/pagey_r7_c2_s1.png" width="100%"/>
+        </div>
+        <div id="startChange3" class="test-con4on">
+            <img src="/static/image/img/pagen_r3_c1_s1.png" width="100%"/>
+        </div>
+    </div>
+    <!--眼妆-->
+    <!--唇妆-->
+    <div class="mouth">
+        <div id="start4" class="test-con5">
+            <img src="/static/image/img/pagey_r7_c6_s1.png" width="100%"/>
+        </div>
+        <div id="startChange4" class="test-con5on">
+            <img src="/static/image/img/pagen_r3_c2_s1.png" width="100%"/>
+        </div>
+    </div>
+    <!--唇妆-->
+</div>
+<!--test-con结束-->
 </div>
 </body>
 </html>

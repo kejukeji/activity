@@ -1,45 +1,119 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
-<link rel="stylesheet" type="text/css" href="/static/css/share.css"/>
-<title>妙巴黎京城格格</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/share.css"/>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <title>妙巴黎京城格格</title>
+    <script type="text/javascript">
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            WeixinJSBridge.call('hideToolbar');
+        });
+        var dataForWeixin = {
+            appId: "wx1426988e8c227dee",
+            MsgImg: "http://bilibili.kejukeji.com/static/image/img/4fe8334fd7e17.jpg",
+            TLImg: "http://bilibili.kejukeji.com/static/image/img/4fe8334fd7e17.jpg",
+            url: "bilibili.kejukeji.com/home",
+            title: "妙巴黎京城格格",
+            desc: "微信优惠活动开始了！",
+            fakeid: "",
+            callback: function () {
+            }
+        };
+        (function () {
+            var onBridgeReady = function () {
+                WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+                    WeixinJSBridge.invoke('sendAppMessage', {
+                        "appid": dataForWeixin.appId,
+                        "img_url": dataForWeixin.MsgImg,
+                        "img_width": "120",
+                        "img_height": "120",
+                        "link": dataForWeixin.url,
+                        "desc": dataForWeixin.desc,
+                        "title": dataForWeixin.title
+                    }, function (res) {
+                        (dataForWeixin.callback)();
+                    });
+                });
+                WeixinJSBridge.on('menu:share:timeline', function (argv) {
+                    (dataForWeixin.callback)();
+                    WeixinJSBridge.invoke('shareTimeline', {
+                        "img_url": dataForWeixin.TLImg,
+                        "img_width": "120",
+                        "img_height": "120",
+                        "link": dataForWeixin.url,
+                        "desc": dataForWeixin.desc,
+                        "title": dataForWeixin.title
+                    }, function (res) {
+                    });
+                });
+
+                WeixinJSBridge.on('menu:share:weibo', function (argv) {
+                    WeixinJSBridge.invoke('shareWeibo', {
+                        "content": dataForWeixin.title,
+                        "url": dataForWeixin.url
+                    }, function (res) {
+                        (dataForWeixin.callback)();
+                    });
+                });
+                WeixinJSBridge.on('menu:share:facebook', function (argv) {
+                    (dataForWeixin.callback)();
+                    WeixinJSBridge.invoke('shareFB', {
+                        "img_url": dataForWeixin.TLImg,
+                        "img_width": "120",
+                        "img_height": "120",
+                        "link": dataForWeixin.url,
+                        "desc": dataForWeixin.desc,
+                        "title": dataForWeixin.title
+                    }, function (res) {
+                    });
+                });
+            };
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            $("#loading").css({display: "none"});
+            $("#real").css({display: "block"});
+        };
+    </script>
 </head>
 
 <body>
-<div class="share-bg">
-<div class="share-topimg">
-<img src="/static/image/img/page3t_r1_c1_s1.png" />
-<p>凭分享到朋友圈截图<a>即可领取赏银</a></p>
-</div>
-<div class="share-text1">
-<p class="share-text-top">1.满100再抵<a class="money">20</a>元</p>
-<p class="share-text-sm">（仅北京促销期间使用，不可与福利券叠加使用）</p>
-<p class="share-text1-time">地点：朝阳区东三环中路65号富力广场<br />
-时间：2014年5月6日-6月1日</p>
+
+
+<div id="loading" style="height: 100%;width: 100%;position: absolute;vertical-align: middle;text-align: center">
+    <span style="vertical-align: middle;display: inline-block;height: 100%"></span>
+    <img src="/static/image/img/5-121204193Q9-51.gif">
 
 </div>
-<div class="share-text2">
-<p class="share-text-top">2.任意购买可抵<a class="money">10</a>元</p>
-<p class="share-text-sm">（非北京地区可在当地专柜使用）</p>
-<p class="share-text-qx">（以上优惠每人限用一张）</p>
+<div id="real" style="display: none">
+    <div class="share-topbg">
+        <div class="share-top">
+            <img src="/static/image/img/fx_r1_c1_s1.png" width="100%"/>
+        </div>
+        <div class="share-con">
+            <img src="/static/image/img/fx_r3_c2_s1.png" width="100%"/>
+        </div>
+        <div class="share-cont">
+            <img src="/static/image/img/fx_r4_c2_s1.png" width="100%"/>
+        </div>
+    </div>
+    <div class="share-foot">
+        <img src="/static/image/img/fx_r6_c3_s1.png" width="100%"/>
 
-</div>
-</div>
-<img src="/static/image/img/page3_r3_c1_s1.png" width="100%" />
-<div class="share-foot">
-<span class="share-foot-img"><img src="/static/image/img/page3t_r5_c2_s1.png"  /></span>
-<span class="share-foot-t">
-
-使用优惠券之前，请确定<br />
-已关注妙巴黎官方微信哦！
-</span>
-</div>
-<div class="clear"></div>
-<div class="share-footb">
-本活动解释权归颖通（上海）贸易有限公司所有
+    </div>
 </div>
 </body>
+
 </html>
