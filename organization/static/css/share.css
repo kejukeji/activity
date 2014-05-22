@@ -1,7 +1,4 @@
 ﻿ @charset "utf-8";
 /* CSS Document */
-.share-topbg{ width:100%; background:url(/static/image/img/fxbg_r1_c1_s1.png) no-repeat top left; height:auto; background-size:100% 100%; }
-.share-top{ width:90%; padding:2% 0 5% 5%;}
-.share-con{ width:90%; padding:5% 0 5% 5%;}
-.share-cont{ width:70%; padding:5% 0 20% 15%;}
-.share-foot{ width:80%; padding:3% 10% 10% 10%; background:url(/static/image/img/fxbg_r2_c1_s1.png) no-repeat; background-size:100% 100%;}
+.share-top{ width:100%; background:url(/static/image/img/page2bg_r1_c1_s1.png) no-repeat top left; background-size:100% 100%; }
+.share-foot{ width:100%; background:url(/static/image/img/page2bg_r2_c1_s1.png) no-repeat top left; display:block; background-size:100% 100%;}

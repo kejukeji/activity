@@ -2,12 +2,11 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>妙巴黎京城格格</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/test5.css"/>
-
+    <link rel="stylesheet" type="text/css" href="/static/css/home.css"/>
+    <title>妙巴黎京城格格</title>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript">
         document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
@@ -81,83 +80,41 @@
             }
         })();
     </script>
-    <script type="text/javascript">
+    <script>
         window.onload = function () {
-
-            $("#loading").css({display: "none"});
-            $("#real").css({display: "block"});
-
             $.ajax({
                 type: 'get',
-                url: '/clickTimes',
+                url: '/viewTimes',
                 success: function () {
                 }
             });
 
+            $("#loading").css({display: "none"});
+            $("#real").css({display: "block"});
 
-            var idx1 = parseInt(3 * Math.random()) + 1;
-            var idx2 = parseInt(2 * Math.random()) + 1;
-            var idx3 = parseInt(2 * Math.random()) + 1;
-            $("#face" + idx1).css({display: "block"});
-            $("#eye" + idx2).css({display: "block"});
-            $("#lip" + idx3).css({display: "block"});
         };
     </script>
-
-    <style type="text/css">
-
-    </style>
-
+</head>
 
 <body>
-
-
 <div id="loading" style="height: 100%;width: 100%;position: absolute;vertical-align: middle;text-align: center">
     <span style="vertical-align: middle;display: inline-block;height: 100%"></span>
     <img src="/static/image/img/5-121204193Q9-51.gif">
 
 </div>
 <div id="real" style="display: none">
-    <div class="test-bg">
-        <div class="test-top">
-            <img src="/static/image/img/share_r1_c1_s1.png" width="100%"/>
-        </div>
-        <div id="face1" class="face">
-            <img src="/static/image/img/share_r2_c1_s1.png" width="100%"/>
-        </div>
-        <div id="face2" class="face">
-            <img src="/static/image/img/share2_r2_c1_s1.png" width="100%"/>
-        </div>
-        <div id="face3" class="face">
-            <img src="/static/image/img/share3_r2_c1_s1.png" width="100%"/>
-        </div>
-        <div class="mj">
-            <img src="/static/image/img/share_r2_c2_s1.png" width="100%"/>
-        </div>
-        <div class="clear"></div>
-        <div id="eye1" class="eye">
-            <img src="/static/image/img/share_r3_c1_s1.png" width="100%"/>
-        </div>
-        <div id="eye2" class="eye">
-            <img src="/static/image/img/share5_r3_c1_s1.png" width="100%"/>
-        </div>
-
-
-        <div id="lip1" class="lip">
-            <img src="/static/image/img/share_r3_c2_s1.png" width="100%"/>
-        </div>
-        <div id="lip2" class="lip">
-            <img src="/static/image/img/share4_r3_c2_s1.png" width="100%"/>
-        </div>
-        <div class="clear"></div>
-
-        <img src="/static/image/img/share_r4_c1_s1.png" width="100%"/>
-
+    <div class="home-top">
+        <img src="/static/image/img/djcg_r1_c1_s1.png" width="100%"/>
     </div>
-    <div class="test5-foot">
-        <img src="/static/image/img/share_r6_c1_s1.png" width="100%"/>
-        <a href="to_share"><img src="/static/image/img/share_r7_c1_s1.png" width="100%"/></a>
+    <div class="homefoot">
+        <a href="/send"><img src="/static/image/img/djcg_r2_c1_s1.png" width="100%"/></a>
     </div>
+    <a href="#bottom">
+    <div id="little_block" style="position:fixed;right:0;_position:absolute;bottom:0px;_bottom:0px;_margin-top:expression(this.style.pixelHeight+document.documentElement.scrollTop)">
+        <img src="/staitc/image/img/xlts.gif">
+    </div>
+    </a>
+    <div id="bottom" name="bottom"></div>
 </div>
 </body>
 </html>

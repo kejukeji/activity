@@ -10,7 +10,11 @@
  src:url(FZZDHJW.TTF);
 
 } 
+ @font-face {
+ font-family: '方正正中黑简体';
+ src:url(方正正中黑简体.TTF);
 
+}
 
 *{margin:0px;padding:0px; }
 body{ width:100%; height:100% }

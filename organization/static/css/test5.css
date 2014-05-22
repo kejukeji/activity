@@ -1,15 +1,11 @@
 ﻿@charset "utf-8";
 /* CSS Document */
-.test-bg{width:100%; background:url(/static/image/img/page2_r1_c1_s1.png) no-repeat top left; background-size:100% 100%;  }
-.test-top{ width:94%; margin-left:3%; padding:3% 0;}
-.face{ width:48%; margin-left:1%; margin-top:1.5%;  display:none; float:left;}
-.eye{ width:48%; margin-left:1%; margin-top:1.5%; display:none;float:left;}
-.lip{ width:48%; margin-left:1%;  margin-top:1.5%;  display:none;float:left;}
-.mj{ width:48%; margin-left:1%;  margin-top:1.5%; float:left;}
-.test5-jtfx{ width:90%; margin-left:5%; padding:5% 0 20% 0;}
-.test5-foot{ background:url(/static/image/img/test5.png) no-repeat; background-size:100% 100%; width:100%; height:auto; display:block; }
-.test5-footb{ width:90%; padding:3% 0 3% 5%;}
-.test5-foota{ width:50%; padding:2% 0 3% 25%;}
+.test-bg{width:100%; background:url(/static/image/img/test5_r1_c1.png) no-repeat top left; background-size:100% 100%;  display:block; }
+.face{ width:50%; display:none; float:left;}
+.eye{ width:50%;  display:none;float:left;}
+.lip{ width:50%; display:none;float:left;}
+.mj{ width:50%; float:left;}
+.test5-foot{ background:url(/static/image/img/test5_r2_c1.png) no-repeat; background-size:100% 100%; width:100%; height:auto; display:block; }
 
 
 

@@ -6,6 +6,9 @@ from organization.services.times_service import *
 def to_home():
     return render_template('bourjois/home.html')
 
+def to_home2():
+    return render_template('bourjois/home2.html')
+
 
 def to_send():
     return render_template('bourjois/test4.html')

@@ -1,13 +1,10 @@
 ﻿@charset "utf-8";
 /* CSS Document */
-
-.face{ width:45%; height:auto; margin-left:2%; padding-top:8%; float:left}
-.eye{ width:45%; height:auto; margin-left:2%; padding-top:10%; float:left; margin-bottom:8%}
-.nail{ width:45%; height:auto; margin-right:2%; padding-top:8%; float:right; margin-bottom:8%}
-.mouth{ width:45%; height:auto; margin-right:2%; padding-top:10%; float:right}
-.test-con3{ text-align:center; width:94%;  margin-left:3%;  height:auto; }
-.test-con3 img{ margin-top:10% !important;}
-.test-con3 a{ line-height:50px; font-size:22px;  color:#ccc;}
+.test-con{ background:url(/static/image/img/newnbg_s1.png) no-repeat top left; background-size:100% 100%;}
+.face{ width:33.33%; height:auto; float:left;}
+.eye{ width:33.33%; height:auto;  float:left;}
+.nail{ width:33.33%; height:auto; float:left; }
+.mouth{ width:33.33%; height:auto;  float:left;}
 
 
 /*点击过后的样式*/
@@ -15,5 +12,4 @@
 .test-con1on{ display:none;}
 .test-con2on{ display:none; }
 .test-con4on{ display:none;}
-.test-con5on{ display:none;}
 

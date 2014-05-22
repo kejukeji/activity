@@ -1,14 +1,6 @@
 ﻿@charset "utf-8";
 /* CSS Document */
 
-.home-top{ width:100%; padding-bottom:30px;  background:url(/static/image/img/home_r1_c1_s1.png) no-repeat top left; background-size:100% 100%; display:block;}
-.home-topimg{ width:90%; height:auto; margin:auto; padding-top:7%;}
-.home-topimg img{ width:100%;}
-.home-topt{ width:90%; margin:auto; margin:5%; }
-.home-bottom{ width:100%; height:auto; display:block; margin:auto; background:url(/static/image/img/home_r2_c1_s1.png) no-repeat top left; background-size:100% 100%; padding:5% 0;}
-.home-bottom span{ width:90%; height:auto; display:block; margin-left:5%;}
- 
-
 
 
 

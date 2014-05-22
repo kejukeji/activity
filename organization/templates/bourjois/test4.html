@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
     <title>妙巴黎京城格格</title>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript">
+    <script type="text/javascript">
         document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
             WeixinJSBridge.call('hideToolbar');
         });
@@ -17,8 +17,8 @@
             MsgImg: "http://bilibili.kejukeji.com/static/image/img/4fe8334fd7e17.jpg",
             TLImg: "http://bilibili.kejukeji.com/static/image/img/4fe8334fd7e17.jpg",
             url: "bilibili.kejukeji.com/home",
-            title: "妙巴黎京城格格",
-            desc: "微信优惠活动开始了！",
+            title: "【躁动京城】格格们!快来!",
+            desc: "只要你有在北京的姐妹儿，这事你就得来掺和！5月26日，请安嘞！",
             fakeid: "",
             callback: function () {
             }
@@ -93,6 +93,8 @@
                     $("#start" + idx).css({display: "none"});
                     $("#startChange" + idx).css({display: "block"});
                     i = i + 1;
+                    $("#img_scope").children().css({display:"none"});
+                    $("#test4top"+i).css({display:'block'});
                     $("#num1").empty().html(i);
                     $("#num2").empty().html(i * 25);
                     if (i == 4) {
@@ -105,11 +107,14 @@
             div_click(2);
             div_click(3);
             div_click(4);
+            div_click(5);
+            div_click(6);
+            div_click(7);
+            div_click(8);
+            div_click(9);
 
         };
     </script>
-
-
 
 
 <body style="height:100%;width:100%; background:url(/static/image/img/pagebg.png) no-repeat; background-size:100% 100%; ">
@@ -119,62 +124,107 @@
 
 </div>
 <div id="real" style="display: none">
-<div class="test-con">
-    <!--面妆-->
-    <div class="face">
-        <div id="start1" class="test-con1">
-            <img src="/static/image/img/pagey_r1_c1_s1.png" width="100%"/>
-        </div>
-        <div id="startChange1" class="test-con1on">
-            <img src="/static/image/img/pagen_r1_c1_s1.png" width="100%"/>
-        </div>
-    </div>
-    <!--面妆-->
-    <!--甲状-->
-    <div class="nail">
-        <div id="start2" class="test-con2">
-            <img src="/static/image/img/pagey_r1_c7_s1.png" width="100%"/>
-        </div>
-        <div id="startChange2" class="test-con2on">
-            <img src="/static/image/img/pagen_r1_c3_s1.png" width="100%"/>
-        </div>
-    </div>
-    <!--甲妆-->
-    <!--中间统计部分-->
-    <div class="test-con3">
-        <center><img src="/static/image/img/pagey_r3_c3_s1.png" width="90%"/></center>
-        <a> 已朝贡
-            <h id="num1" style=" color:#FC0; font-size:30px;">0</h>
-            件</a>&nbsp;&nbsp;
-        <a>完成
-            <h id="num2" style=" color:#FC0; font-size:30px;">&nbsp;0</h>
-            %</a>
-    </div>
-    <!--中间统计部分-->
-    <!--眼妆-->
-    <div class="eye">
-        <div id="start3" class="test-con4">
-            <img src="/static/image/img/pagey_r7_c2_s1.png" width="100%"/>
-        </div>
-        <div id="startChange3" class="test-con4on">
-            <img src="/static/image/img/pagen_r3_c1_s1.png" width="100%"/>
-        </div>
-    </div>
-    <!--眼妆-->
-    <!--唇妆-->
-    <div class="mouth">
-        <div id="start4" class="test-con5">
-            <img src="/static/image/img/pagey_r7_c6_s1.png" width="100%"/>
-        </div>
-        <div id="startChange4" class="test-con5on">
-            <img src="/static/image/img/pagen_r3_c2_s1.png" width="100%"/>
-        </div>
-    </div>
+    <div class="test-con">
+        <img src="/static/image/img/test4top.png" width="100%"/>
 
-    <div style="clear: both"></div>
-    <!--唇妆-->
-</div>
-<!--test-con结束-->
+        <div id="img_scope">
+            <img id="test4top0" src="/static/image/img/test4top0.png" width="100%"/>
+            <img id="test4top1" src="/static/image/img/test4top1.png" width="100%" style="display: none"/>
+            <img id="test4top2" src="/static/image/img/test4top2.png" width="100%" style="display: none"/>
+            <img id="test4top3" src="/static/image/img/test4top3.png" width="100%" style="display: none"/>
+            <img id="test4top4" src="/static/image/img/test4top4.png" width="100%" style="display: none"/>
+        </div>
+        <!--1-->
+        <div class="face">
+            <div id="start1" class="test-con1">
+                <img src="/static/image/img/test4l.png" width="100%"/>
+            </div>
+            <div id="startChange1" class="test-con1on">
+                <img src="/static/image/img/test4l2.png" width="100%"/>
+            </div>
+        </div>
+        <!--2-->
+        <div class="nail">
+            <div id="start2" class="test-con2">
+                <img src="/static/image/img/test4l.png" width="100%"/>
+            </div>
+            <div id="startChange2" class="test-con2on">
+                <img src="/static/image/img/test4l2.png" width="100%"/>
+            </div>
+        </div>
+        <!--3-->
+        <div class="eye">
+            <div id="start3" class="test-con4">
+                <img src="/static/image/img/test4l.png" width="100%"/>
+            </div>
+            <div id="startChange3" class="test-con4on">
+                <img src="/static/image/img/test4l2.png" width="100%"/>
+            </div>
+        </div>
+        <!-------------------------------------------->
+        <div class="clear"></div>
+        <!--1-->
+        <div class="face">
+            <div id="start4" class="test-con1">
+                <img src="/static/image/img/test4l.png" width="100%"/>
+            </div>
+            <div id="startChange4" class="test-con1on">
+                <img src="/static/image/img/test4l2.png" width="100%"/>
+            </div>
+        </div>
+        <!--2-->
+        <div class="nail">
+            <div id="start5" class="test-con2">
+                <img src="/static/image/img/test4l.png" width="100%"/>
+            </div>
+            <div id="startChange5" class="test-con2on">
+                <img src="/static/image/img/test4l2.png" width="100%"/>
+            </div>
+        </div>
+        <!--3-->
+        <div class="eye">
+            <div id="start6" class="test-con4">
+                <img src="/static/image/img/test4l.png" width="100%"/>
+            </div>
+            <div id="startChange6" class="test-con4on">
+                <img src="/static/image/img/test4l2.png" width="100%"/>
+            </div>
+        </div>
+        <!-------------------------------------------->
+        <div class="clear"></div>
+        <!--1-->
+        <div class="face">
+            <div id="start7" class="test-con1">
+                <img src="/static/image/img/test4l.png" width="100%"/>
+            </div>
+            <div id="startChange7" class="test-con1on">
+                <img src="/static/image/img/test4l2.png" width="100%"/>
+            </div>
+        </div>
+        <!--2-->
+        <div class="nail">
+            <div id="start8" class="test-con2">
+                <img src="/static/image/img/test4l.png" width="100%"/>
+            </div>
+            <div id="startChange8" class="test-con2on">
+                <img src="/static/image/img/test4l2.png" width="100%"/>
+            </div>
+        </div>
+        <!--3-->
+        <div class="eye">
+            <div id="start9" class="test-con4">
+                <img src="/static/image/img/test4l.png" width="100%"/>
+            </div>
+            <div id="startChange9" class="test-con4on">
+                <img src="/static/image/img/test4l2.png" width="100%"/>
+            </div>
+        </div>
+        <!-------------------------------------------->
+        <div class="clear"></div>
+        <img src="/static/image/img/test4b.png" width="100%"/>
+    </div>
+    <!--test-con结束-->
+    <!--test-con结束-->
 </div>
 </body>
 </html>
