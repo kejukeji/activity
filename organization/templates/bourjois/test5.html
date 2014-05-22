@@ -101,6 +101,10 @@
             $("#face" + idx1).css({display: "block"});
             $("#eye" + idx2).css({display: "block"});
             $("#lip" + idx3).css({display: "block"});
+
+             setTimeout(function(){
+               $("#little_block").hide();
+            },8000);
         };
     </script>
 
@@ -158,6 +162,15 @@
         <img src="/static/image/img/share_r6_c1_s1.png" width="100%"/>
         <a href="to_share"><img src="/static/image/img/share_r7_c1_s1.png" width="100%"/></a>
     </div>
+
+    <a href="#bottom">
+        <div id="little_block"
+             style="position:fixed;right:0;_position:absolute;bottom:0px;_bottom:0px;_margin-top:expression(this.style.pixelHeight+document.documentElement.scrollTop)">
+            <img src="/static/image/img/xlts.gif" height="200%" width="200%">
+        </div>
+    </a>
+
+    <div id="bottom" name="bottom"></div>
 </div>
 </body>
 </html>

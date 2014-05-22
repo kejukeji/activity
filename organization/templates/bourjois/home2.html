@@ -91,7 +91,9 @@
 
             $("#loading").css({display: "none"});
             $("#real").css({display: "block"});
-
+            setTimeout(function(){
+               $("#little_block").hide();
+            },8000);
         };
     </script>
 </head>
@@ -111,7 +113,7 @@
     </div>
     <a href="#bottom">
     <div id="little_block" style="position:fixed;right:0;_position:absolute;bottom:0px;_bottom:0px;_margin-top:expression(this.style.pixelHeight+document.documentElement.scrollTop)">
-        <img src="/staitc/image/img/xlts.gif">
+        <img src="/static/image/img/xlts.gif" height="200%" width="200%">
     </div>
     </a>
     <div id="bottom" name="bottom"></div>
